@@ -1,6 +1,12 @@
 // Express.js 
 const express = require('express');
 
+// dotenv
+require('dotenv');
+
+// Sequelize connection
+const sequelize = require('./config/connection');
+
 const app = express();
 const PORT = 3001;
 

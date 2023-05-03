@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.listen(PORT, console.log(`Listening on PORT ${PORT}...`));
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, console.log(`Listening on PORT ${PORT}...`));
+});
 
 module.exports = app;

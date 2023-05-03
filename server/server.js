@@ -7,14 +7,15 @@ require('dotenv').config();
 // Sequelize connection
 const sequelize = require('./config/connection');
 
+// other imports
+const routes = require('./routes/index');
+
 const app = express();
 const PORT = 3001;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, console.log(`Listening on PORT ${PORT}...`));

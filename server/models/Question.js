@@ -15,14 +15,17 @@ Question.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        other_answers: {
+        second_choice: {
             type: DataTypes.STRING,
-            get: function() {
-                return JSON.parse(this.getDataValue('other_answers'));
-            },
-            set: function(val) {
-                return this.setDataValue('other_answers', JSON.stringify(val));
-            }
+            allowNull: false
+        },
+        third_choice: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        fourth_choice: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         test_id: {
             type: DataTypes.UUID,

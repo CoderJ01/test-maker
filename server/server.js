@@ -2,7 +2,7 @@
 const express = require('express');
 
 // dotenv
-require('dotenv');
+require('dotenv').config();
 
 // Sequelize connection
 const sequelize = require('./config/connection');

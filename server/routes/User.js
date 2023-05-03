@@ -1,11 +1,14 @@
 // Express.js
 const router = require('express').Router();
 
-// other Node.js imports
+// other Node.js packages
 const bcrypt = require('bcrypt');
 
 // model
 const User = require('../models/User');
+
+// other imports
+const generateCookie = require('../util/generateCookie');
 
 router.post('/register', async (req, res) => {
     // hash
@@ -69,6 +72,14 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ msg: 'Wrong password!' });
         return;
     }
+
+    // update cookie
+    const salt = await bcrypt.genSalt(10);
+    const hashedCookie = await bcrypt.hash(generateCookie(80), salt);
+    user.update({ random_string: hashedCookie });
+
+    // save
+    user.save();
 
     res.status(200).json({
         msg: 'You have logged in successfully!',

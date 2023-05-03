@@ -27,6 +27,9 @@ User.init(
         password: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        random_string: {
+            type: DataTypes.STRING,
         }
     },
     {

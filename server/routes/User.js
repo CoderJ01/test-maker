@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 // model
 const User = require('../models/User');
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     // hash
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(req.body.password, salt);
@@ -47,6 +47,59 @@ router.post('/', async (req, res) => {
     .catch(error => {
         res.json(error);
     })
+});
+
+router.post('/login', async (req, res) => {
+    // look for user
+    const user = await User.findOne({
+        where: {
+            username: req.body.username
+        }
+    });
+
+    if(!user) {
+        res.status(400).json({ msg: 'User does not exist!' });
+        return;
+    }
+
+    // validate password
+    const valid = await bcrypt.compare(req.body.password, user.password);
+
+    if(!valid) {
+        res.status(400).json({ msg: 'Wrong password!' });
+        return;
+    }
+
+    res.status(200).json({
+        msg: 'You have logged in successfully!',
+        data: user
+    });
+})
+
+router.get('/', async (req, res) => {
+    await User.findAll().then(response => {
+        res.json(response);
+    });
+});
+
+router.get('/:id', async (req, res) => {
+    await User.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(response => {
+        res.json(response);
+    });
+});
+
+router.delete('/:id', async (req, res) => {
+    await User.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(response => {
+        res.json(response);
+    });
 });
 
 module.exports = router;

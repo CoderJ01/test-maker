@@ -1,6 +1,11 @@
+// Express.js
 const router = require('express').Router();
-const User = require('../models/User');
+
+// other Node.js imports
 const bcrypt = require('bcrypt');
+
+// model
+const User = require('../models/User');
 
 router.post('/', async (req, res) => {
     const salt = await bcrypt.genSalt(10);

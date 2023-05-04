@@ -34,6 +34,10 @@ User.init(
         verified: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {

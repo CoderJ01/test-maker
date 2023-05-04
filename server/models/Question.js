@@ -11,7 +11,7 @@ Question.init(
             allowNull: false,
             primaryKey: true
         },
-        question: {
+        question_header: {
             type: DataTypes.STRING,
             allowNull: false
         },

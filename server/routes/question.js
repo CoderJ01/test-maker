@@ -6,7 +6,7 @@ const Question = require('../models/Question');
 
 router.post('/:testId', async (req, res) => {
     await Question.create({
-        question: req.body.question,
+        question_header: req.body.question_header,
         correct_answer: req.body.correct_answer,
         second_choice: req.body.second_choice,
         third_choice: req.body.third_choice,

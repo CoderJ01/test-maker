@@ -1,0 +1,23 @@
+{
+  "name": "test-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd client && npm start\" \"cd server && nodemon server.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderJ01/test-maker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderJ01/test-maker/issues"
+  },
+  "homepage": "https://github.com/CoderJ01/test-maker#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

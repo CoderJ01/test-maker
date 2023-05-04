@@ -11,6 +11,10 @@ Question.init(
             allowNull: false,
             primaryKey: true
         },
+        question: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         correct_answer: {
             type: DataTypes.STRING,
             allowNull: false

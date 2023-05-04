@@ -21,4 +21,24 @@ router.post('/:testId', async (req, res) => {
     });
 });
 
+router.get('/:testId', async (req, res) => {
+    const questions = await Question.findAll({
+        where: {
+            test_id: req.params.testId
+        }
+    });
+    res.json(questions);
+});
+
+router.delete('/:id', async (req, res) => {
+    await Question.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(response => {
+        res.json(response);
+    });
+});
+
 module.exports = router;

@@ -30,6 +30,10 @@ User.init(
         },
         random_string: {
             type: DataTypes.STRING,
+        },
+        verified: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {

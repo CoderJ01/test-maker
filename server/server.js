@@ -15,7 +15,7 @@ const PORT = 3001;
 
 app.use(express.json());
 
-app.use(routes);
+app.use('/api', routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, console.log(`Listening on PORT ${PORT}...`));

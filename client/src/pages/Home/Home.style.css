@@ -1,26 +1,13 @@
-.user-tests {
-    border: 1px solid purple;
-    margin-top: 2vh;
-}
-
 .bottom {
-    border: 1px solid red;
-    margin-top: 2vh;
-}
-
-.tests {
-    border: 1px solid blue;
     margin-top: 2vh;
 }
 
 .right-panel {
-    border: 1px solid green;
     margin-top: 2vh;
 }
 
 /* Desktop */
 @media screen and (min-width: 1280px) {
-    .user-tests,
     .bottom {
         margin-left: 5%;
         width: 90%;
@@ -29,10 +16,6 @@
     .bottom {
         display: flex;
         justify-content: space-around;
-    }
-
-    .tests {
-        width: 40%;
     }
 
     .right-panel {

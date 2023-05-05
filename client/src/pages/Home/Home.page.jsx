@@ -4,15 +4,21 @@ import React from 'react';
 // CSS
 import './Home.style.css';
 
+// components
+import UserTests from '../../components/UserTests/UserTests.component';
+import Tests from '../../components/Tests/Tests.component';
+import Scores from '../../components/Scores/Scores.component';
+import Logout from '../../components/Logout/Logout.component';
+
 const Home = () => {
     return (
         <div className='home'>
-            <div className='user-tests'>Your Tests</div>
+            <UserTests/>
             <div className='bottom'>
-                <div className='tests'>Tests</div>
+                <Tests/>
                 <div className='right-panel'>
-                    <div className='scores'>Scores</div>
-                    <div className='logout'>Logout</div>
+                    <Scores/>
+                    <Logout/>
                 </div>
             </div>
         </div>

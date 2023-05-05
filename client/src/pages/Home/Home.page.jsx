@@ -1,6 +1,9 @@
 // React 
 import React from 'react';
 
+// CSS
+import './Home.style.css';
+
 const Home = () => {
     return (
         <div className='home'>

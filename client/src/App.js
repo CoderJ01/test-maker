@@ -12,17 +12,17 @@ import Header from './components/Header/Header.component';
 import Home from './pages/Home/Home.page';
 
 function App() {
-	return (
-		<div className='App'>
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<Header/>}>
-						<Route index element={<Home/>}/>
-					</Route>
-				</Routes>
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Header/>}>
+            <Route index element={<Home/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

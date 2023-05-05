@@ -3,6 +3,10 @@
 	margin: 0;
 }
 
+h2 {
+	text-align: center;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
 	h1 {
@@ -13,6 +17,10 @@
 @media screen and (max-width: 1279px) {
 	h1 {
 		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2rem;
 	}
 }
 
@@ -30,6 +38,10 @@
 @media screen and (max-width: 540px) {
 	h1 {
 		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 20px;
 	}
 }
 

@@ -1,6 +1,10 @@
 // React
 import React, { useState } from 'react';
 
+// utils
+import { baseURL } from '../../utils/urls';
+import { isValidEmail } from '../../utils/emailValidation';
+
 // other imports
 import axios from 'axios';
 
@@ -17,12 +21,17 @@ const Register = () => {
             return;
         }
 
+        if(!isValidEmail(email)) {
+            alert('Email is invalid!');
+            return;
+        }
+
         if(password.length < 8) {
             alert('Password needs to be at least 8 characters!');
             return;
         }
 
-        axios.post('http://localhost:3001/api/users/register', 
+        axios.post(`${baseURL}/api/users/register`, 
             {
                 username: username,
                 email: email,

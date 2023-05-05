@@ -1,6 +1,9 @@
 // React
 import React, { useState } from 'react';
 
+// CSS
+import './Register.style.css';
+
 // utils
 import { baseURL } from '../../utils/urls';
 import isValidEmail from '../../utils/emailValidation';

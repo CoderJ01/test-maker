@@ -22,6 +22,11 @@ h2 {
 	h2 {
 		font-size: 2rem;
 	}
+
+	label,
+	input {
+		font-size: 25px;
+	}
 }
 
 /* iPad Pro */
@@ -31,7 +36,10 @@ h2 {
 
 /* iPad */
 @media screen and (max-width: 768px) {
-
+	label,
+	input {
+		font-size: 25px;
+	}
 }
 
 /* Surface Duo */
@@ -42,6 +50,11 @@ h2 {
 
 	h2 {
 		font-size: 20px;
+	}
+
+	label,
+	input {
+		font-size: 15px;
 	}
 }
 

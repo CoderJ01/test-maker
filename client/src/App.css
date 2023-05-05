@@ -24,7 +24,8 @@ h2 {
 	}
 
 	label,
-	input {
+	input,
+	button {
 		font-size: 25px;
 	}
 }
@@ -37,7 +38,8 @@ h2 {
 /* iPad */
 @media screen and (max-width: 768px) {
 	label,
-	input {
+	input,
+	button {
 		font-size: 25px;
 	}
 }
@@ -53,7 +55,8 @@ h2 {
 	}
 
 	label,
-	input {
+	input,
+	button {
 		font-size: 15px;
 	}
 }

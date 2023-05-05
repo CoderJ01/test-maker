@@ -3,3 +3,7 @@ header {
     padding: 2vh;
     text-align: center;
 }
+
+header h1 {
+    color: white;
+}

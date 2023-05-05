@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 // utils
 import { baseURL } from '../../utils/urls';
-import { isValidEmail } from '../../utils/emailValidation';
+import isValidEmail from '../../utils/emailValidation';
 
 // other imports
 import axios from 'axios';

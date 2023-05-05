@@ -1,3 +1,9 @@
+header {
+    background-color: rgb(249, 32, 68);
+    padding: 2vh;
+    text-align: center;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
 

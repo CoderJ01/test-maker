@@ -1,10 +1,40 @@
+.register form {
+    box-shadow: rgba(245, 183, 177, 0.4) 0px 30px 90px;
+    padding-bottom: 3vh;
+}
+
+.register h2 {
+    background-color: rgb(128, 139, 150);
+    color: white;
+}
+
+.register button {
+    background-color: rgb(249, 32, 68);
+    border: 2px solid rgb(249, 32, 68);
+    color: white;
+}
+
+.register form label,
+.register form input,
+.register form button {
+    margin-left: 5%;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
-
+    .register form {
+        margin-left: 35%;
+        margin-top: 10vh;
+        width: 30%;
+    }
 }
 
 @media screen and (max-width: 1279px) {
-
+    .register form {
+        margin-left: 25%;
+        margin-top: 2vh;
+        width: 50%;
+    }
 }
 
 /* iPad Pro */
@@ -24,7 +54,10 @@
 
 /* iPhone 6/7/8 Plus */
 @media screen and (max-width: 414px) {
-
+    .register form {
+        margin-left: 10%;
+        width: 80%;
+    }
 }
 
 /* iPhone 12 Pro */

@@ -8,13 +8,18 @@ require('dotenv').config();
 const sequelize = require('./config/connection');
 
 // other imports
+const cors = require('cors');
 const routes = require('./routes/index');
 
 const app = express();
 const PORT = 3001;
 
 app.use(express.json());
-
+app.use(
+    cors({
+        origin: ['http://localhost:3000', process.env.DEPLOYED_FRONTEND],
+    })
+);
 app.use('/api', routes);
 
 sequelize.sync({ force: false }).then(() => {

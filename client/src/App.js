@@ -14,11 +14,10 @@ import Home from './pages/Home/Home.page';
 function App() {
   return (
     <div className='App'>
+      <Header/>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Header/>}>
-            <Route index element={<Home/>}/>
-          </Route>
+          <Route path='/' element={<Home/>}/>
         </Routes>
       </BrowserRouter>
     </div>

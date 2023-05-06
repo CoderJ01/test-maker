@@ -19,6 +19,10 @@ Test.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        complete: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         user_id: {
             type: DataTypes.UUID,
             references: {

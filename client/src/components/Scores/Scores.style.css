@@ -1,10 +1,32 @@
+.scores {
+    box-shadow: rgba(249, 32, 68, 0.35) 0px 5px 15px;
+    padding-bottom: 3vh;
+}
+
+.scores-single-score {
+    border-bottom: 1px dashed rgb(249, 32, 68);
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+    width: 70%;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
-
+    .scores-single-score {
+        margin-top: 3vh;
+    }
 }
 
 @media screen and (max-width: 1279px) {
+    .scores {
+        margin-left: 25%;
+        width: 50%;
+    }
 
+    .scores-single-score {
+        margin-top: 1vh;
+    }
 }
 
 /* iPad Pro */
@@ -19,12 +41,18 @@
 
 /* Surface Duo */
 @media screen and (max-width: 540px) {
-
+    .scores-single-score {
+        margin-left: 5%;
+        width: 90%;
+    }
 }
 
 /* iPhone 6/7/8 Plus */
 @media screen and (max-width: 414px) {
-
+    .scores {
+        margin-left: 10%;
+        width: 80%;
+    }
 }
 
 /* iPhone 12 Pro */

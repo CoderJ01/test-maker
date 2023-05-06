@@ -40,11 +40,10 @@ function App() {
     }
     fetchUser();
   }, []);
-  console.log(user);
-  
+
   return (
     <div className='App'>
-      <Header/>
+      <Header user={user}/>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>

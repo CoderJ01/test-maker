@@ -14,7 +14,7 @@ const Home = ({ user }) => {
 
     return (
         <div className='home'>
-            <UserTests/>
+            <UserTests user={user}/>
             <div className='bottom'>
                 <Tests/>
                 <div className='right-panel'>

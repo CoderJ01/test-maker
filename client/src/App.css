@@ -29,7 +29,8 @@ button:active {
 
 	label,
 	input,
-	button {
+	button,
+	a {
 		font-size: 25px;
 	}
 }
@@ -43,7 +44,8 @@ button:active {
 @media screen and (max-width: 768px) {
 	label,
 	input,
-	button {
+	button,
+	a {
 		font-size: 25px;
 	}
 }
@@ -60,7 +62,8 @@ button:active {
 
 	label,
 	input,
-	button {
+	button,
+	a {
 		font-size: 15px;
 	}
 }

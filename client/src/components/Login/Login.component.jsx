@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import '../Register/Register.style.css';
 
 // utils
-import { baseURL } from '../../utils/urls';
+import { baseURL, baseURL_client } from '../../utils/urls';
 import setCookie from '../../utils/setCookie';
 
 // other imports
@@ -58,9 +58,12 @@ const Login = () => {
                     <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <br/>
-                <button>
-                    Login
-                </button>
+                <div className='register-footer'>
+                    <button>
+                        Login
+                    </button>
+                    <a href={`${baseURL_client}/register`}>Register Instead</a>
+                </div>
             </form>
         </div>
     );

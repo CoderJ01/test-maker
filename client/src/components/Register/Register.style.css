@@ -14,9 +14,19 @@
     color: white;
 }
 
+.register form a {
+    color: rgb(249, 32, 68);
+}
+
+.register-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    width: 90%;
+}
+
 .register form label,
-.register form input,
-.register form button {
+.register form input {
     margin-left: 5%;
 }
 

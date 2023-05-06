@@ -8,7 +8,15 @@ const Header = ({ user }) => {
     return (
         <header>
             <h1>Test Maker</h1>
-            <p>Hello {user.username}</p>
+            {
+                user.length === 0 ? 
+                (
+                    ''
+                ) : 
+                (
+                    <p>Hello {user.username}</p>
+                )
+            }
         </header>
     );
 }

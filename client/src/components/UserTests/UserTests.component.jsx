@@ -16,6 +16,9 @@ const UserTests = () => {
                    </p>
                 </div>
             </div>
+            <div className='ut-bottom'>
+                <button>Create New Test</button>
+            </div>
         </div>
     );
 }

@@ -41,6 +41,7 @@
 
 @media screen and (max-width: 1279px) {
     .register form {
+        background-color: white;
         margin-left: 25%;
         margin-top: 2vh;
         width: 50%;

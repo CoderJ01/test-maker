@@ -10,6 +10,11 @@
     box-shadow: rgba(249, 32, 68, 0.35) 0px 5px 15px;
 }
 
+.ut-bottom {
+    display: flex;
+    justify-content: center;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
     .user-tests {

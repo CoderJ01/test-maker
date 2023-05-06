@@ -19,9 +19,9 @@ const Home = ({ user }) => {
                 <Tests/>
                 <div className='right-panel'>
                     <Scores/>
-                    <Logout/>
                 </div>
             </div>
+            <Logout/>
         </div>
     );
 }

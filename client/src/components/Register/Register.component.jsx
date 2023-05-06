@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import './Register.style.css';
 
 // utils
-import { baseURL } from '../../utils/urls';
+import { baseURL, baseURL_client } from '../../utils/urls';
 import isValidEmail from '../../utils/emailValidation';
 
 // other imports
@@ -70,9 +70,12 @@ const Register = () => {
                     <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <br/>
-                <button>
-                    Register
-                </button>
+                <div className='register-footer'>
+                    <button>
+                        Register
+                    </button>
+                    <a href={`${baseURL_client}/login`}>Login Instead</a>
+                </div>
             </form>
         </div>
     );

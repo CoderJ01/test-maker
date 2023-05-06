@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.user-test-display {
+    padding-bottom: 4vh;
+}
+
 .utd-single-test {
     box-shadow: rgba(249, 32, 68, 0.35) 0px 5px 15px;
 }
@@ -26,7 +30,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        padding-bottom: 4vh;
     }
 
     .utd-single-test {

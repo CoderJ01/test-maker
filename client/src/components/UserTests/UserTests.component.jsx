@@ -15,30 +15,6 @@ const UserTests = () => {
                     Fils on idee mais la me qu deux vive sons. Vif bourse une hordes demain voyait regard poemes. 
                    </p>
                 </div>
-                <div className='utd-single-test'>
-                    <h3>Title</h3>
-                    <p>Commande apercoit laissons bas mon essaiera ame campagne parterre. 
-                    Fils on idee mais la me qu deux vive sons. Vif bourse une hordes demain voyait regard poemes. 
-                   </p>
-                </div>
-                <div className='utd-single-test'>
-                    <h3>Title</h3>
-                    <p>Commande apercoit laissons bas mon essaiera ame campagne parterre. 
-                    Fils on idee mais la me qu deux vive sons. Vif bourse une hordes demain voyait regard poemes. 
-                   </p>
-                </div>
-                <div className='utd-single-test'>
-                    <h3>Title</h3>
-                    <p>Commande apercoit laissons bas mon essaiera ame campagne parterre. 
-                    Fils on idee mais la me qu deux vive sons. Vif bourse une hordes demain voyait regard poemes. 
-                   </p>
-                </div>
-                <div className='utd-single-test'>
-                    <h3>Title</h3>
-                    <p>Commande apercoit laissons bas mon essaiera ame campagne parterre. 
-                    Fils on idee mais la me qu deux vive sons. Vif bourse une hordes demain voyait regard poemes. 
-                   </p>
-                </div>
             </div>
         </div>
     );

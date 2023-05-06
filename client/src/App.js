@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // CSS
 import './App.css';
@@ -46,7 +46,7 @@ function App() {
       <Header user={user}/>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home user={user}/>}/>
+          <Route path='/' element={user.length !== 0 ? <Home user={user}/> : <Navigate to='/register'/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
         </Routes>

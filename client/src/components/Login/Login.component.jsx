@@ -37,6 +37,7 @@ const Login = () => {
             setCookie('test-maker-cookie', response.data.data.random_string, 1);
             alert(response.data.msg);
             console.log(response.data.data.random_string);
+            window.location.reload(false);
         })
         .catch(error => {
             console.log(error);

@@ -1,10 +1,18 @@
 // React
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // CSS
 import './UserTests.style.css';
 
-const UserTests = () => {
+const UserTests = ({ user }) => {
+    let navigate = useNavigate();
+
+    const routeChange = () => {
+        let path = `/create-test/${user.id}`;
+        navigate(path);
+    }
+
     return (
         <div className='user-tests'>
             <h2>Your Tests</h2>
@@ -17,7 +25,7 @@ const UserTests = () => {
                 </div>
             </div>
             <div className='ut-bottom'>
-                <button>Create New Test</button>
+                <button onClick={routeChange}>Create New Test</button>
             </div>
         </div>
     );

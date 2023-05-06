@@ -47,8 +47,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={user.length !== 0 ? <Home user={user}/> : <Navigate to='/register'/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={user.length === 0 ? <Register/> : <Navigate to='/'/>}/>
+          <Route path='/login' element={user.length === 0 ? <Login/> : <Navigate to='/'/>}/>
         </Routes>
       </BrowserRouter>
     </div>

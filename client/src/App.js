@@ -13,6 +13,8 @@ import Login from './components/Login/Login.component';
 // pages
 import Home from './pages/Home/Home.page';
 import CreateTest from './pages/CreateTest/CreateTest.component';
+import CreateQuestions from './pages/CreateQuestions/CreateQuestions.page';
+
 
 // util
 import { baseURL } from './utils/urls';
@@ -51,6 +53,7 @@ function App() {
           <Route path='/register' element={user.length === 0 ? <Register/> : <Navigate to='/'/>}/>
           <Route path='/login' element={user.length === 0 ? <Login/> : <Navigate to='/'/>}/>
           <Route path='/create-test/:userId' element={user.length !== 0 ? <CreateTest/> : <Navigate to='/register'/>}/>
+          <Route path='/create-questions/:userId' element={<CreateQuestions/>}/>
         </Routes>
       </BrowserRouter>
     </div>

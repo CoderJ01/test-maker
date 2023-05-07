@@ -2,6 +2,14 @@
     padding-bottom: 5vh;
 }
 
+.ct-create-questions {
+    text-align: center;
+}
+
+.ct-create-questions a {
+    color: rgb(249, 32, 68);
+}
+
 .create-test form label,
 .create-test form input,
 .create-test form textarea,
@@ -26,6 +34,11 @@
         margin-top: 4vh;
         width: 40%;
     }
+
+    .ct-create-questions {
+        margin-top: 4vh;
+    }
+    
 }
 
 /* iPad Pro */

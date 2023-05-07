@@ -2,6 +2,9 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// CSS
+import './CreateQuestions.style.css';
+
 // url
 import { baseURL } from '../../utils/urls';
 
@@ -62,7 +65,7 @@ const CreateQuestions = () => {
     useEffect(() => {
         retrieveIds();
     }, [retrieveIds]);
-    
+
     console.log(testId);
 
     return (

@@ -32,9 +32,11 @@ const CreateTest = () => {
             }
         )
         .then(response => {
+            alert(response.data.msg);
             console.log(response);
         })
         .catch(error => {
+            alert(error.response.data.msg);
             console.log(error);
         });
     }

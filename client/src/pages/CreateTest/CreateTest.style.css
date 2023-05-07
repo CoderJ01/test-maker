@@ -1,10 +1,31 @@
+.create-test form {
+    padding-bottom: 5vh;
+}
+
+.create-test form label,
+.create-test form input,
+.create-test form textarea,
+.create-test form select,
+.create-test form button {
+    margin-left: 5%;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
- 
+    .create-test form {
+        margin-left: 35%;
+        margin-top: 4vh;
+        width: 30%;
+    }
 }
 
 @media screen and (max-width: 1279px) {
-  
+    .create-test form {
+        background-color: white;
+        margin-left: 30%;
+        margin-top: 4vh;
+        width: 40%;
+    }
 }
 
 /* iPad Pro */
@@ -14,7 +35,10 @@
 
 /* iPad */
 @media screen and (max-width: 768px) {
-
+    .create-test form {
+        margin-left: 25%;
+        width: 50%;
+    }
 }
 
 /* Surface Duo */
@@ -24,7 +48,10 @@
 
 /* iPhone 6/7/8 Plus */
 @media screen and (max-width: 414px) {
-
+    .create-test form {
+        margin-left: 15%;
+        width: 70%;
+    }
 }
 
 /* iPhone 12 Pro */

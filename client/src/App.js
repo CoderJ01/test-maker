@@ -12,7 +12,7 @@ import Login from './components/Login/Login.component';
 
 // pages
 import Home from './pages/Home/Home.page';
-import CreateTest from './pages/CreateTest/CreateTest.component';
+import CreateTest from './pages/CreateTest/CreateTest.page';
 import CreateQuestions from './pages/CreateQuestions/CreateQuestions.page';
 
 

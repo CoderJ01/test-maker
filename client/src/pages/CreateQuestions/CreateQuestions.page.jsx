@@ -83,6 +83,35 @@ const CreateQuestions = () => {
                     ))}
                 </select>
             </div>
+            <br/>
+            <div className='cq-questions'>
+            <form>
+                <div>
+                    <label htmlFor='question'>Question</label><br/>
+                    <input type='text' name='question'></input>
+                </div>
+                <br/>
+                <div>
+                    <label htmlFor='correct-answer'>Correct Answer</label><br/>
+                    <input type='text' name='correct-answer'></input>
+                </div>
+                <br/>
+                <div>
+                    <label htmlFor='second-choice'>Choice</label><br/>
+                    <input type='text' name='second-choice'></input>
+                </div>
+                <br/>
+                <div>
+                    <label htmlFor='third-choice'>Choice</label><br/>
+                    <input type='text' name='third-choice'></input>
+                </div>
+                <br/>
+                <div>
+                    <label htmlFor='fourth-choice'>Choice</label><br/>
+                    <input type='text' name='fourth-choice'></input>
+                </div>
+            </form>
+            </div>
         </div>
     );
 }

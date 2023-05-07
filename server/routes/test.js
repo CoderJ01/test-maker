@@ -5,6 +5,18 @@ const router = require('express').Router();
 const Test = require('../models/Test');
 
 router.post('/:userId', async (req, res) => {
+    const title = await Test.findOne({
+        where: {
+            user_id: req.params.userId,
+            title: req.body.title
+        }
+    });
+
+    if(title) {
+        res.status(400).json({ msg: 'Title needs to be unique! '});
+        return;
+    }
+
     Test.create({
         title: req.body.title,
         description: req.body.description,
@@ -12,7 +24,10 @@ router.post('/:userId', async (req, res) => {
         user_id: req.params.userId
     })
     .then(response => {
-        res.json(response);
+        res.status(200).json({
+            msg: 'Test has successfully been created!',
+            data: response
+        });
     })
     .catch(error => {
         res.json(error);

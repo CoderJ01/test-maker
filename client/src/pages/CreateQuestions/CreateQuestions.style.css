@@ -25,7 +25,12 @@
     }
     
     .cqq-single-question {
+        margin-top: 2vh;
         width: 15%;
+    }
+
+    #cqqsq-heading {
+        color: rgb(249, 32, 68);
     }
 }
 

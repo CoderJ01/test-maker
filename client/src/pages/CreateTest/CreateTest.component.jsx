@@ -1,5 +1,6 @@
 // React
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 // CSS
 import './CreateTest.style.css';
@@ -9,6 +10,8 @@ import { listOptions } from './CreateTest.util';
 import { baseURL_client } from '../../utils/urls';
 
 const CreateTest = () => {
+    const { userId } = useParams();
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selected, setSelected] = useState('10');
@@ -18,6 +21,8 @@ const CreateTest = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
+
+    console.log(userId);
 
     console.log(title);
     console.log(description);
@@ -54,7 +59,7 @@ const CreateTest = () => {
                 <button type='submit'>Confirm</button>
             </form>
             <div className='ct-create-questions'>
-                <a href={`${baseURL_client}/userId/`}>Create Test Questions</a>
+                <a href={`${baseURL_client}/create-questions/${userId}`}>Create Test Questions</a>
             </div>
         </div>
     );

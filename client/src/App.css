@@ -43,7 +43,8 @@ a:active {
 	label,
 	input,
 	button,
-	a {
+	a,
+	select {
 		font-size: 25px;
 	}
 }
@@ -58,7 +59,8 @@ a:active {
 	label,
 	input,
 	button,
-	a {
+	a,
+	select {
 		font-size: 25px;
 	}
 }
@@ -76,7 +78,8 @@ a:active {
 	label,
 	input,
 	button,
-	a {
+	a,
+	select {
 		font-size: 15px;
 	}
 }

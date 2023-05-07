@@ -8,6 +8,7 @@ router.post('/:userId', async (req, res) => {
     Test.create({
         title: req.body.title,
         description: req.body.description,
+        number_of_questions: req.body.number,
         user_id: req.params.userId
     })
     .then(response => {

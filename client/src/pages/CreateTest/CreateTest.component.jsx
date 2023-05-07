@@ -1,6 +1,9 @@
 // React
 import React, { useState } from 'react';
 
+// CSS
+import './CreateTest.style.css';
+
 // util
 import { listOptions } from './CreateTest.util';
 
@@ -22,15 +25,17 @@ const CreateTest = () => {
     return (
         <div className='create-test'>
             <form onSubmit={handleSubmit}>
-                <h2>Create Test</h2>
+                <h2>Create Test</h2><br/>
                 <div>
                     <label htmlFor='title'>Title:</label><br/>
                     <input type='text' name='title' onChange={e => setTitle(e.target.value)}></input>
                 </div>
+                <br/>
                 <div>
                     <label htmlFor='description'>Description:</label><br/>
                     <textarea type='text' name='description' onChange={e => setDescription(e.target.value)}></textarea>
                 </div>
+                <br/>
                 <div>
                     <label htmlFor='questions'>Number of Questions:</label><br/>
                     <select 
@@ -44,6 +49,7 @@ const CreateTest = () => {
                     ))}
                 </select>
                 </div>
+                <br/>
                 <button type='submit'>Confirm</button>
             </form>
         </div>

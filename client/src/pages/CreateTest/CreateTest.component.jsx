@@ -57,12 +57,12 @@ const CreateTest = () => {
                 <h2>Create Test</h2><br/>
                 <div>
                     <label htmlFor='title'>Title:</label><br/>
-                    <input type='text' name='title' onChange={e => setTitle(e.target.value)}></input>
+                    <input maxLength={25} type='text' name='title' onChange={e => setTitle(e.target.value)}></input>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='description'>Description:</label><br/>
-                    <textarea type='text' name='description' onChange={e => setDescription(e.target.value)}></textarea>
+                    <textarea maxLength={200} type='text' name='description' onChange={e => setDescription(e.target.value)}></textarea>
                 </div>
                 <br/>
                 <div>

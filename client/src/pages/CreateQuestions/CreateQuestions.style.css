@@ -4,6 +4,11 @@
     margin-top: 2vh;
 }
 
+.cq-questions {
+    display: flex;
+    justify-content: center;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
     .create-questions {

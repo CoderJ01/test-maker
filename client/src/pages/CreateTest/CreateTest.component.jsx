@@ -7,7 +7,10 @@ import './CreateTest.style.css';
 
 // util
 import { listOptions } from './CreateTest.util';
-import { baseURL_client } from '../../utils/urls';
+import { baseURL, baseURL_client } from '../../utils/urls';
+
+// other imports
+import axios from 'axios';
 
 const CreateTest = () => {
     const { userId } = useParams();
@@ -20,13 +23,21 @@ const CreateTest = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        axios.post(`${baseURL}/api/tests/${userId}`, 
+            {
+                title: title,
+                description: description,
+                number: selected
+            }
+        )
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
-
-    console.log(userId);
-
-    console.log(title);
-    console.log(description);
-    console.log(selected)
     
     return (
         <div className='create-test'>

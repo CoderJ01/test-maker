@@ -68,8 +68,6 @@ const CreateQuestions = () => {
         retrieveIds();
     }, [retrieveIds]);
 
-    console.log(questionNumber);
-
     console.log(testId)
 
     if(tests.length === 0) {

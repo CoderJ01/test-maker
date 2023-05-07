@@ -6,6 +6,7 @@ import './CreateTest.style.css';
 
 // util
 import { listOptions } from './CreateTest.util';
+import { baseURL_client } from '../../utils/urls';
 
 const CreateTest = () => {
     const [title, setTitle] = useState('');
@@ -52,6 +53,9 @@ const CreateTest = () => {
                 <br/>
                 <button type='submit'>Confirm</button>
             </form>
+            <div className='ct-create-questions'>
+                <a href={`${baseURL_client}/userId/`}>Create Test Questions</a>
+            </div>
         </div>
     );
 }

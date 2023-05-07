@@ -18,6 +18,7 @@ const CreateQuestions = () => {
     const [testTitles, setTestTitles] = useState([]);
     const [pickedTest, setPickedTest] = useState('');
     const [testId, setTestId] = useState('');
+    const [questionNumber, setQuestionNumber] = useState(0);
 
     const fetchTest = useCallback(async () => {
         const id = userId;
@@ -57,14 +58,17 @@ const CreateQuestions = () => {
         tests.filter(test => {
             if(pickedTest === test.title) {
                 setTestId(test.id);
+                setQuestionNumber(test.number_of_questions);
             }
             return test;
         });
-    }, [tests, pickedTest, setTestId]);
+    }, [tests, pickedTest, setTestId, setQuestionNumber]);
 
     useEffect(() => {
         retrieveIds();
     }, [retrieveIds]);
+
+    console.log(questionNumber);
 
     if(tests.length === 0) {
         return (
@@ -89,33 +93,41 @@ const CreateQuestions = () => {
                     ))}
                 </select>
             </div>
-            <br/>
             <div className='cq-questions'>
             <form>
-                <div>
-                    <label htmlFor='question'>Question</label><br/>
-                    <input type='text' name='question'></input>
-                </div>
-                <br/>
-                <div>
-                    <label htmlFor='correct-answer'>Correct Answer</label><br/>
-                    <input type='text' name='correct-answer'></input>
-                </div>
-                <br/>
-                <div>
-                    <label htmlFor='second-choice'>Choice</label><br/>
-                    <input type='text' name='second-choice'></input>
-                </div>
-                <br/>
-                <div>
-                    <label htmlFor='third-choice'>Choice</label><br/>
-                    <input type='text' name='third-choice'></input>
-                </div>
-                <br/>
-                <div>
-                    <label htmlFor='fourth-choice'>Choice</label><br/>
-                    <input type='text' name='fourth-choice'></input>
-                </div>
+            {
+                Array.apply(0, Array(questionNumber)).map(function(x, i) {
+                    return (
+                       <>
+                       <br/>
+                        <div>
+                            <label htmlFor='question'>Question {i + 1}</label><br/>
+                            <input type='text' name='question'></input>
+                        </div>
+                        <br/>
+                        <div>
+                            <label htmlFor='correct-answer'>Correct Answer</label><br/>
+                            <input type='text' name='correct-answer'></input>
+                        </div>
+                        <br/>
+                        <div>
+                            <label htmlFor='second-choice'>Choice</label><br/>
+                            <input type='text' name='second-choice'></input>
+                        </div>
+                        <br/>
+                        <div>
+                            <label htmlFor='third-choice'>Choice</label><br/>
+                            <input type='text' name='third-choice'></input>
+                        </div>
+                        <br/>
+                        <div>
+                            <label htmlFor='fourth-choice'>Choice</label><br/>
+                            <input type='text' name='fourth-choice'></input>
+                        </div>
+                       </>
+                    );
+                })
+            }
             </form>
             </div>
         </div>

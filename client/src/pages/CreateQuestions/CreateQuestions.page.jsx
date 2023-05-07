@@ -66,7 +66,13 @@ const CreateQuestions = () => {
         retrieveIds();
     }, [retrieveIds]);
 
-    console.log(testId);
+    if(tests.length === 0) {
+        return (
+            <div className='create-questions'>
+                <h2>You have yet to create a test</h2>
+            </div>
+        );
+    }
 
     return (
         <div className='create-questions'>

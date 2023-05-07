@@ -24,6 +24,16 @@ const CreateTest = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if(title === '') {
+            alert('The test needs a title!');
+            return;
+        }
+
+        if(description === '') {
+            alert('The test needs a description!');
+            return;
+        }
+
         axios.post(`${baseURL}/api/tests/${userId}`, 
             {
                 title: title,

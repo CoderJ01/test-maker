@@ -70,6 +70,8 @@ const CreateQuestions = () => {
 
     console.log(questionNumber);
 
+    console.log(testId)
+
     if(tests.length === 0) {
         return (
             <div className='create-questions'>
@@ -101,7 +103,7 @@ const CreateQuestions = () => {
                        <div className='cqq-single-question'>
                         <br/>
                             <div>
-                                <label htmlFor='question' style={{ color: 'rgb(249, 32, 68)', fontWeight: 'bold' }}>Question {i + 1}</label><br/>
+                                <label htmlFor='question' id='cqqsq-heading' style={{ fontWeight: 'bold' }}>Question {i + 1}</label><br/>
                                 <input type='text' name='question'></input>
                             </div>
                             <br/>

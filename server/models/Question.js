@@ -25,11 +25,9 @@ Question.init(
         },
         third_choice: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         fourth_choice: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         test_id: {
             type: DataTypes.UUID,

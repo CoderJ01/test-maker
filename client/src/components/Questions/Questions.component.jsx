@@ -71,6 +71,7 @@ const Questions = ({ testId, numOfQuestions }) => {
         .then(response => {
             console.log(response);
             alert(response.data.msg);
+            window.location.reload(false);
         })
         .catch(error => {
             console.log(error);

@@ -14,6 +14,10 @@
     box-shadow: rgba(236, 133, 42, 0.4) 0px 10px 30px;
 }
 
+#utdst-incomplete {
+    color: rgb(184, 99, 28);
+}
+
 .ut-bottom {
     display: flex;
     justify-content: center;
@@ -37,6 +41,10 @@
         margin-top: 4vh;
         width: 30%;
     }
+
+    #utdst-incomplete {
+        text-align: right;
+    }
 }
 
 @media screen and (max-width: 1279px) {
@@ -46,6 +54,10 @@
         margin-top: 3vh;
         margin-left: 25%;
         width: 50%;
+    }
+
+    #utdst-incomplete {
+        text-align: center;
     }
 }
 

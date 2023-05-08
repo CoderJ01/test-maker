@@ -17,31 +17,11 @@
     .cq-selection select {
         width: 200px;
     } 
-
-    .cq-questions form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .cqq-single-question {
-        margin-top: 2vh;
-        width: 15%;
-    }
-
-    #cqqsq-heading {
-        color: rgb(249, 32, 68);
-    }
 }
 
 @media screen and (max-width: 1279px) {
     .create-questions {
         margin-top: 2vh;
-    }
-
-    .cq-questions {
-        display: flex;
-        justify-content: center;
     }
 
     .cq-selection select {

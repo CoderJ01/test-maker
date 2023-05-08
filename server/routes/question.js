@@ -5,19 +5,22 @@ const router = require('express').Router();
 const Question = require('../models/Question');
 
 router.post('/:testId', async (req, res) => {
-    await Question.create({
-        question_header: req.body.question_header,
-        correct_answer: req.body.correct_answer,
-        second_choice: req.body.second_choice,
-        third_choice: req.body.third_choice,
-        fourth_choice: req.body.fourth_choice,
-        test_id: req.params.testId
-    })
-    .then(response => {
-        res.json(response)
-    })
-    .catch(error => {
-        res.json(error);
+    let questionSet = [];
+
+    for(let i = 0; i < req.body.questions.length; i++) {
+        questionSet[i] = Question.create({
+            question_header: req.body.questions[i].question,
+            correct_answer: req.body.questions[i].correct,
+            second_choice: req.body.questions[i].choice2,
+            third_choice: req.body.questions[i].choice3,
+            fourth_choice: req.body.questions[i].choice4,
+            test_id: req.params.testId
+        });
+    }
+
+    res.status(200).json({
+        msg: 'Questions have been successfully created!',
+        data: questionSet
     });
 });
 

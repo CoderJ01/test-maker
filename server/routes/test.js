@@ -39,10 +39,11 @@ router.get('/', async (req, res) => {
     res.json(tests);
 });
 
-router.get('/:userId', async (req, res) => {
+router.get('/false/:userId', async (req, res) => {
     const userTests = await Test.findAll({
         where: {
-            user_id: req.params.userId
+            user_id: req.params.userId,
+            complete: false
         }
     });
     res.json(userTests);

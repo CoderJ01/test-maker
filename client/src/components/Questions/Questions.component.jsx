@@ -4,17 +4,40 @@ import React, { useState } from 'react';
 // CSS 
 import './Questions.style.css';
 
-const Questions = ({ testId, questionNumber }) => {
+const Questions = ({ testId, numOfQuestions }) => {
     const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
     const [choice2, setChoice2] = useState('');
     const [choice3, setChoice3] = useState('');
     const [choice4, setChoice4] = useState('');
+    const [questionNumber, setQuestionNumber] = useState(1);
+
+    console.log(numOfQuestions);
 
     const [questions, setQuestions] = useState([]);
 
     const addQuestion = (e) => {
         e.preventDefault();
+
+        if(question === '') {
+            alert('A question is required!');
+            return;
+        }
+
+        if(correct === '') {
+            alert('A correct choice is required!');
+            return;
+        }
+
+        if(choice2 === '' && choice3 === '' && choice4 === '') {
+            alert('At least one other choice is required!');
+            return;
+        }
+
+        if(questionNumber === numOfQuestions + 1) {
+            alert(`The maximun number of questions allowed is ${numOfQuestions}!`);
+            return;
+        }
         
         let questionObj = {
             question: question,
@@ -25,6 +48,7 @@ const Questions = ({ testId, questionNumber }) => {
         };
 
         setQuestions([...questions, questionObj]);
+        setQuestionNumber(questionNumber + 1);
     }
 
     console.log(questions)
@@ -35,7 +59,7 @@ const Questions = ({ testId, questionNumber }) => {
                 <div className='question'>
                     <br/>
                     <div>
-                        <label htmlFor='question' id='question-heading' style={{ fontWeight: 'bold' }}>Question</label><br/>
+                        <label htmlFor='question' id='question-heading' style={{ fontWeight: 'bold' }}>Question {questionNumber}</label><br/>
                         <input type='text' name='question' onChange={e => setQuestion(e.target.value)}></input>
                     </div>
                     <br/>

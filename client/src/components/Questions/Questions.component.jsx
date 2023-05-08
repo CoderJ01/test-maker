@@ -1,7 +1,10 @@
 // React 
 import React, { useState } from 'react';
 
-const Questions = ({ testId, numOfQuestions }) => {
+// CSS 
+import './Questions.style.css';
+
+const Questions = ({ testId, questionNumber }) => {
     const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
     const [choice2, setChoice2] = useState('');
@@ -13,15 +16,15 @@ const Questions = ({ testId, numOfQuestions }) => {
     }
 
     return (
-        <div className='cq-questions'>
+        <div className='questions'>
             <form>
             {
                 Array.apply(0, Array(1)).map(function(x, i) {
                     return (
-                        <div className='cqq-single-question'>
+                        <div className='question'>
                             <br/>
                             <div>
-                                <label htmlFor='question' id='cqqsq-heading' style={{ fontWeight: 'bold' }}>Question</label><br/>
+                                <label htmlFor='question' id='question-heading' style={{ fontWeight: 'bold' }}>Question</label><br/>
                                 <input type='text' name='question' onChange={e => setQuestion(e.target.value)}></input>
                             </div>
                             <br/>

@@ -94,41 +94,41 @@ const CreateQuestions = () => {
                 </select>
             </div>
             <div className='cq-questions'>
-            <form>
-            {
-                Array.apply(0, Array(questionNumber)).map(function(x, i) {
-                    return (
-                       <div className='cqq-single-question'>
-                        <br/>
-                            <div>
-                                <label htmlFor='question' id='cqqsq-heading' style={{ fontWeight: 'bold' }}>Question {i + 1}</label><br/>
-                                <input type='text' name='question'></input>
+                <form>
+                {
+                    Array.apply(0, Array(questionNumber)).map(function(x, i) {
+                        return (
+                            <div className='cqq-single-question'>
+                                <br/>
+                                <div>
+                                    <label htmlFor='question' id='cqqsq-heading' style={{ fontWeight: 'bold' }}>Question {i + 1}</label><br/>
+                                    <input type='text' name='question'></input>
+                                </div>
+                                <br/>
+                                <div>
+                                    <label htmlFor='correct-answer'>Correct Answer</label><br/>
+                                    <input type='text' name='correct-answer'></input>
+                                </div>
+                                <br/>
+                                <div>
+                                    <label htmlFor='second-choice'>Choice</label><br/>
+                                    <input type='text' name='second-choice'></input>
+                                </div>
+                                <br/>
+                                <div>
+                                    <label htmlFor='third-choice'>Choice</label><br/>
+                                    <input type='text' name='third-choice'></input>
+                                </div>
+                                <br/>
+                                <div>
+                                    <label htmlFor='fourth-choice'>Choice</label><br/>
+                                    <input type='text' name='fourth-choice'></input>
+                                </div>
                             </div>
-                            <br/>
-                            <div>
-                                <label htmlFor='correct-answer'>Correct Answer</label><br/>
-                                <input type='text' name='correct-answer'></input>
-                            </div>
-                            <br/>
-                            <div>
-                                <label htmlFor='second-choice'>Choice</label><br/>
-                                <input type='text' name='second-choice'></input>
-                            </div>
-                            <br/>
-                            <div>
-                                <label htmlFor='third-choice'>Choice</label><br/>
-                                <input type='text' name='third-choice'></input>
-                            </div>
-                            <br/>
-                            <div>
-                                <label htmlFor='fourth-choice'>Choice</label><br/>
-                                <input type='text' name='fourth-choice'></input>
-                            </div>
-                       </div>
-                    );
-                })
-            }
-            </form>
+                            );
+                    })
+                }
+                </form>
             </div>
         </div>
     );

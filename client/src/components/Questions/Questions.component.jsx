@@ -83,8 +83,8 @@ const Questions = ({ testId, numOfQuestions }) => {
                         <input type='text' name='fourth-choice' onChange={e => setChoice4(e.target.value)}></input>
                     </div>
                     <br/>
-                    <button onClick={addQuestion}>Add Question</button>
-                    <br/><br/><br/>
+                    <button id='question-add' onClick={addQuestion}>Add</button>
+                    <br/><br/>
                     <div className='question-submit'>
                         <button>Submit Test</button>
                     </div>

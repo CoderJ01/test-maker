@@ -58,20 +58,20 @@ const UserTests = ({ user }) => {
                         tests.map(test => {
                             return (
                                 <div className='utd-single-test'>
-                                    <h3>{test.title}</h3>
+                                    <div className='utdst-header'>
+                                        <h3>{test.title}</h3>
+                                        <i class='fa fa-times' aria-hidden='true'></i>
+                                    </div>
                                     <p>{test.description}</p>
-                                    <div className='utdst-footer'>
                                     {
                                         test.complete === true ? 
                                         (
-                                            ''
+                                            <p>No show</p>
                                         ) : 
                                         (
-                                            <p id='utdstf-incomplete'>Incomplete</p>
+                                            <p id='utdst-incomplete'>Incomplete</p>
                                         )
                                     }
-                                    <i class='fa fa-times' aria-hidden='true'></i>
-                                    </div>
                                 </div>
                             );
                         })

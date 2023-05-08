@@ -1,3 +1,8 @@
+.question-submit {
+    display: flex;
+    justify-content: center;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
     .questions form {

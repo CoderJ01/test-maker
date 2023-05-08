@@ -70,6 +70,7 @@ const Questions = ({ testId, numOfQuestions }) => {
         })
         .then(response => {
             console.log(response);
+            alert(response.data.msg);
         })
         .catch(error => {
             console.log(error);

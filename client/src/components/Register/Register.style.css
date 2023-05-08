@@ -1,5 +1,6 @@
 .register form {
-    box-shadow: rgba(245, 183, 177, 0.4) 0px 30px 90px;
+    background-color: white;
+    box-shadow: rgba(236, 133, 42, 0.4) 0px 30px 90px;
     padding-bottom: 3vh;
 }
 
@@ -9,13 +10,11 @@
 }
 
 .register button {
-    background-color: rgb(249, 32, 68);
-    border: 2px solid rgb(249, 32, 68);
     color: white;
 }
 
 .register form a {
-    color: rgb(249, 32, 68);
+    color: rgb(236, 133, 42);
 }
 
 .register-footer {
@@ -41,7 +40,6 @@
 
 @media screen and (max-width: 1279px) {
     .register form {
-        background-color: white;
         box-shadow: rgba(213, 216, 220, 0.4) 0px 30px 90px;
         margin-left: 25%;
         margin-top: 2vh;

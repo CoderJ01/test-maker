@@ -58,9 +58,7 @@ const UserTests = ({ user }) => {
                         tests.map(test => {
                             return (
                                 <div className='utd-single-test'>
-                                    <div className='utdst-header'>
-                                        <h3>{test.title}</h3>
-                                    </div>
+                                    <h3>{test.title}</h3>
                                     <p>{test.description}</p>
                                     {
                                         test.complete === true ? 

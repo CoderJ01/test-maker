@@ -24,13 +24,6 @@ const CreateQuestions = () => {
     const [testId, setTestId] = useState('');
     const [questionNumber, setQuestionNumber] = useState(0);
 
-    // question
-    const [question, setQuestion] = useState([]);
-    const [correct, setCorrect] = useState('');
-    const [choice2, setChoice2] = useState('');
-    const [choice3, setChoice3] = useState('');
-    const [choice4, setChoice4] = useState('');
-
     const fetchTest = useCallback(async () => {
         const id = userId;
 
@@ -79,12 +72,6 @@ const CreateQuestions = () => {
         retrieveIds();
     }, [retrieveIds]);
 
-    console.log(testId)
-
-    const addQuestion = (e) => {
-        e.preventDefault();
-    }
-
     if(tests.length === 0) {
         return (
             <div className='create-questions'>
@@ -113,7 +100,10 @@ const CreateQuestions = () => {
                 {
                     Array.apply(0, Array(1)).map(function(x, i) {
                         return (
-                            <Questions/>
+                            <Questions 
+                                testId={testId}
+                                questionNumber={questionNumber}
+                            />
                         );
                     })
                 }

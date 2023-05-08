@@ -1,7 +1,7 @@
 // React 
 import React, { useState } from 'react';
 
-const Questions = () => {
+const Questions = ({ testId, questionNumber }) => {
     const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
     const [choice2, setChoice2] = useState('');

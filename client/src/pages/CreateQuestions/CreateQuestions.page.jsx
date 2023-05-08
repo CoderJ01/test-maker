@@ -95,20 +95,7 @@ const CreateQuestions = () => {
                     ))}
                 </select>
             </div>
-            <div className='cq-questions'>
-                <form>
-                {
-                    Array.apply(0, Array(1)).map(function(x, i) {
-                        return (
-                            <Questions 
-                                testId={testId}
-                                questionNumber={questionNumber}
-                            />
-                        );
-                    })
-                }
-                </form>
-            </div>
+            <Questions testId={testId} questionNumber={questionNumber}/>
         </div>
     );
 }

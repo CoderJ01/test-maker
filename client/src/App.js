@@ -53,7 +53,7 @@ function App() {
           <Route path='/register' element={user.length === 0 ? <Register/> : <Navigate to='/'/>}/>
           <Route path='/login' element={user.length === 0 ? <Login/> : <Navigate to='/'/>}/>
           <Route path='/create-test/:userId' element={user.length !== 0 ? <CreateTest/> : <Navigate to='/register'/>}/>
-          <Route path='/create-questions/:userId' element={<CreateQuestions/>}/>
+          <Route path='/create-questions/:userId' element={user.length !== 0 ? <CreateQuestions/> : <Navigate to='/register'/>}/>
         </Routes>
       </BrowserRouter>
     </div>

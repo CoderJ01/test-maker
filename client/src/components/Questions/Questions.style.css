@@ -17,7 +17,12 @@
     }
 
     #question-heading {
-        color: rgb(249, 32, 68);
+        color: rgb(174, 69, 141);
+    }
+
+    #question-add {
+        background-color: rgb(174, 69, 141);
+        border: 2px solid rgb(174, 69, 141);
     }
 }
 
@@ -25,6 +30,11 @@
     .questions {
         display: flex;
         justify-content: center;
+    }
+
+    #question-add {
+        background-color: black;
+        border: 2px solid black;
     }
 }
 

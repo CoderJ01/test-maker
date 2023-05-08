@@ -3,8 +3,10 @@ const router = require('express').Router();
 
 // model
 const Question = require('../models/Question');
+const Test = require('../models/Test');
 
 router.post('/:testId', async (req, res) => {
+    // create question
     let questionSet = [];
 
     for(let i = 0; i < req.body.questions.length; i++) {
@@ -17,6 +19,16 @@ router.post('/:testId', async (req, res) => {
             test_id: req.params.testId
         });
     }
+
+    // update test status
+    const test = await Test.findOne({
+        where: {
+            id: req.params.testId
+        }
+    });
+
+    test.complete = true;
+    test.save();
 
     res.status(200).json({
         msg: 'Questions have been successfully created!',

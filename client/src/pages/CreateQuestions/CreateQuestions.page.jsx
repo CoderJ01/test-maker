@@ -22,7 +22,7 @@ const CreateQuestions = () => {
     const [testTitles, setTestTitles] = useState([]);
     const [pickedTest, setPickedTest] = useState('');
     const [testId, setTestId] = useState('');
-    const [questionNumber, setQuestionNumber] = useState(0);
+    const [numOfQuestions, setNumOfQuestions] = useState(0);
 
     const fetchTest = useCallback(async () => {
         const id = userId;
@@ -62,11 +62,11 @@ const CreateQuestions = () => {
         tests.filter(test => {
             if(pickedTest === test.title) {
                 setTestId(test.id);
-                setQuestionNumber(test.number_of_questions);
+                setNumOfQuestions(test.number_of_questions);
             }
             return test;
         });
-    }, [tests, pickedTest, setTestId, setQuestionNumber]);
+    }, [tests, pickedTest, setTestId, setNumOfQuestions]);
 
     useEffect(() => {
         retrieveIds();
@@ -95,7 +95,7 @@ const CreateQuestions = () => {
                     ))}
                 </select>
             </div>
-            <Questions testId={testId} questionNumber={questionNumber}/>
+            <Questions testId={testId} numOfQuestions={numOfQuestions}/>
         </div>
     );
 }

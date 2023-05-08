@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const Questions = () => {
-    const [question, setQuestion] = useState([]);
+    const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
     const [choice2, setChoice2] = useState('');
     const [choice3, setChoice3] = useState('');

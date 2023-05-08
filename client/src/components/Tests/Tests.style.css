@@ -3,7 +3,7 @@
 }
 
 .test-single-test {
-    box-shadow: rgba(236, 42, 107, 0.4) 0px 40px 50px -10px, rgba(236, 42, 107, 0.2) 0px 20px 20px -10px;
+    box-shadow: rgba(236, 133, 42, 0.4) 0px 40px 50px -10px, rgba(236, 133, 42, 0.2) 0px 20px 20px -10px;
 }
 
 .tests h3 {
@@ -26,7 +26,7 @@
     }
 
     .test-single-test {
-        background-color: rgb(253, 244, 249);
+        background-color: rgb(255, 241, 203);
         margin-top: 3vh;
     }
 }

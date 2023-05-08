@@ -11,7 +11,7 @@
 }
 
 .utd-single-test {
-    box-shadow: rgba(249, 10, 24, 0.35) 0px 10px 30px;
+    box-shadow: rgba(236, 133, 42, 0.4) 0px 10px 30px;
 }
 
 .ut-bottom {
@@ -33,7 +33,7 @@
     }
 
     .utd-single-test {
-        background-color: rgb(253, 244, 249);
+        background-color: rgb(255, 241, 203);
         margin-top: 4vh;
         width: 30%;
     }

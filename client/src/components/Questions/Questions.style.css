@@ -17,12 +17,12 @@
     }
 
     #question-heading {
-        color: rgb(174, 69, 141);
+        color: rgb(184, 99, 28);
     }
 
     #question-add {
-        background-color: rgb(174, 69, 141);
-        border: 2px solid rgb(174, 69, 141);
+        background-color: rgb(184, 99, 28);
+        border: 2px solid rgb(184, 99, 28);
     }
 }
 

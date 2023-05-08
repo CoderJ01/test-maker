@@ -29,7 +29,7 @@ const CreateQuestions = () => {
 
         if(id) {
             try {
-                const response = await axios.get(`${baseURL}/api/tests/${id}`);
+                const response = await axios.get(`${baseURL}/api/tests/false/${id}`);
                 setTests(response.data);
                 setPickedTest(response.data[0].title)
             }
@@ -44,14 +44,12 @@ const CreateQuestions = () => {
     }, [fetchTest]);
 
     const retrieveNames =  useCallback(() => {
-        let incompleteTests = [];
+        let userTests = [];
         tests.filter(test => {
-            if(test.complete === false) {
-                incompleteTests.push(test.title);
-            }
+            userTests.push(test.title);
             return test;
         });
-        setTestTitles(incompleteTests);
+        setTestTitles(userTests);
     }, [tests]);
 
     useEffect(() => {

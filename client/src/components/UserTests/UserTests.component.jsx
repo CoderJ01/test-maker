@@ -59,6 +59,7 @@ const UserTests = ({ user }) => {
                             return (
                                 <div className='utd-single-test'>
                                     <div className='utdst-header'>
+                                        <i class='fa fa-times' aria-hidden='true' style={{ color: 'transparent' }}></i>
                                         <h3>{test.title}</h3>
                                         <i class='fa fa-times' aria-hidden='true'></i>
                                     </div>

@@ -51,6 +51,15 @@ const Questions = ({ testId, numOfQuestions }) => {
         setQuestionNumber(questionNumber + 1);
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(questionNumber < 10) {
+            alert('Every test must have at least 10 questions!');
+            return;
+        }
+    }
+
     console.log(questions)
 
     return (
@@ -86,7 +95,7 @@ const Questions = ({ testId, numOfQuestions }) => {
                     <button id='question-add' onClick={addQuestion}>Add</button>
                     <br/><br/>
                     <div className='question-submit'>
-                        <button>Submit Test</button>
+                        <button onClick={handleSubmit}>Submit Test</button>
                     </div>
                 </div>
             </form>

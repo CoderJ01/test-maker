@@ -4,6 +4,12 @@ import React, { useState } from 'react';
 // CSS 
 import './Questions.style.css';
 
+// URL
+import { baseURL } from '../../utils/urls';
+
+// other imports
+import axios from 'axios';
+
 const Questions = ({ testId, numOfQuestions }) => {
     const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
@@ -58,6 +64,16 @@ const Questions = ({ testId, numOfQuestions }) => {
             alert('Every test must have at least 10 questions!');
             return;
         }
+
+        axios.post(`${baseURL}/api/questions/${testId}`, {
+            questions: questions
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     console.log(questions)

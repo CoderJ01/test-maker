@@ -18,6 +18,14 @@ a:active {
 	opacity: 0.7;
 }
 
+.App {
+	background: rgb(221,139,139);
+	background: linear-gradient(0deg, rgba(221,139,139,1) 0%, rgba(243,225,236,1) 100%);
+	border: 1px solid rgb(243, 225, 236);
+	min-height: 100vh;
+}
+
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
 	h1 {
@@ -26,12 +34,6 @@ a:active {
 }
 
 @media screen and (max-width: 1279px) {
-	.App {
-		background-color: rgb(243, 225, 236);
-		border: 1px solid rgb(243, 225, 236);
-		min-height: 100vh;
-	}
-
 	h1 {
 		font-size: 3rem;
 	}

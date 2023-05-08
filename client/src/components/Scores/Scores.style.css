@@ -3,7 +3,6 @@
 }
 
 .scores-single-score {
-    border-bottom: 1px dashed rgb(249, 32, 68);
     display: flex;
     justify-content: space-between;
     margin-left: 15%;

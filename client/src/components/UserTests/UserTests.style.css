@@ -11,7 +11,7 @@
 }
 
 .utd-single-test {
-    box-shadow: rgba(249, 32, 68, 0.35) 0px 5px 15px;
+    box-shadow: rgba(249, 10, 24, 0.35) 0px 10px 30px;
 }
 
 .ut-bottom {
@@ -42,7 +42,7 @@
 @media screen and (max-width: 1279px) {
     .utd-single-test {
         background-color: white;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
         margin-top: 3vh;
         margin-left: 25%;
         width: 50%;

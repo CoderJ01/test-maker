@@ -3,7 +3,7 @@
 }
 
 .test-single-test {
-    box-shadow: rgba(249, 32, 68, 0.1) 0px 20px 25px -5px, rgba(249, 32, 68, 0.04) 0px 10px 10px -5px;
+    box-shadow: rgba(236, 42, 107, 0.4) 0px 40px 50px -10px, rgba(236, 42, 107, 0.2) 0px 20px 20px -10px;
 }
 
 .tests h3 {
@@ -34,7 +34,7 @@
 @media screen and (max-width: 1279px) {
     .test-single-test {
         background-color: white;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
         margin-left: 25%;
         margin-top: 2vh;
         width: 50%;

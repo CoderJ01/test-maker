@@ -60,15 +60,18 @@ const UserTests = ({ user }) => {
                                 <div className='utd-single-test'>
                                     <h3>{test.title}</h3>
                                     <p>{test.description}</p>
+                                    <div className='utdst-footer'>
                                     {
                                         test.complete === true ? 
                                         (
                                             ''
                                         ) : 
                                         (
-                                            <p id='utdst-incomplete'>Incomplete</p>
+                                            <p id='utdstf-incomplete'>Incomplete</p>
                                         )
                                     }
+                                    <i class='fa fa-times' aria-hidden='true'></i>
+                                    </div>
                                 </div>
                             );
                         })

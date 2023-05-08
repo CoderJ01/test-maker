@@ -66,7 +66,7 @@ const UserTests = ({ user }) => {
                                     {
                                         test.complete === true ? 
                                         (
-                                            <p>No show</p>
+                                            ''
                                         ) : 
                                         (
                                             <p id='utdst-incomplete'>Incomplete</p>

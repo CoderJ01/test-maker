@@ -11,9 +11,23 @@ const Questions = ({ testId, questionNumber }) => {
     const [choice3, setChoice3] = useState('');
     const [choice4, setChoice4] = useState('');
 
+    const [questions, setQuestions] = useState([]);
+
     const addQuestion = (e) => {
         e.preventDefault();
+        
+        let questionObj = {
+            question: question,
+            correct: correct,
+            choice2: choice2,
+            choice3: choice3,
+            choice4: choice4
+        };
+        
+        setQuestions([...questions, questionObj]);
     }
+
+    console.log(questions)
 
     return (
         <div className='questions'>

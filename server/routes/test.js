@@ -3,6 +3,7 @@ const router = require('express').Router();
 
 // model
 const Test = require('../models/Test');
+const Questions = require('../models/Question');
 
 router.post('/:userId', async (req, res) => {
     const title = await Test.findOne({
@@ -60,6 +61,12 @@ router.get('/false/:userId', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+    await Questions.destroy({
+        where: {
+            test_id: req.params.id
+        }
+    });
+    
     await Test.destroy({
         where: {
             id: req.params.id

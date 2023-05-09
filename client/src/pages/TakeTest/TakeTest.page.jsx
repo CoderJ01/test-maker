@@ -1,6 +1,9 @@
 // React 
 import React, { useState } from 'react';
 
+// CSS
+import './TakeTest.style.css';
+
 const TakeTest = ({ user }) => {
     const [pickedChoice, setPickedChoice] = useState('');
     console.log(pickedChoice);

@@ -12,7 +12,7 @@ import { baseURL, baseURL_client } from '../../utils/urls';
 // other imports
 import axios from 'axios';
 
-const CreateTest = () => {
+const CreateTest = ({ user }) => {
     const { userId } = useParams();
 
     const [title, setTitle] = useState('');
@@ -34,21 +34,25 @@ const CreateTest = () => {
             return;
         }
 
-        axios.post(`${baseURL}/api/tests/${userId}`, 
+        const id = user.id;
+
+        if(id) {
+            axios.post(`${baseURL}/api/tests/${user.id}`, 
             {
                 title: title,
                 description: description,
                 number: selected
             }
-        )
-        .then(response => {
-            alert(response.data.msg);
-            console.log(response);
-        })
-        .catch(error => {
-            alert(error.response.data.msg);
-            console.log(error);
-        });
+            )
+            .then(response => {
+                alert(response.data.msg);
+                console.log(response);
+            })
+            .catch(error => {
+                alert(error.response.data.msg);
+                console.log(error);
+            });
+        }
     }
     
     return (

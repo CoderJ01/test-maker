@@ -1,6 +1,5 @@
 // React 
 import React, { useEffect, useCallback, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 // CSS
 import './CreateQuestions.style.css';
@@ -14,10 +13,7 @@ import { baseURL } from '../../utils/urls';
 // other imports
 import axios from 'axios';
 
-const CreateQuestions = () => {
-    const { userId } = useParams();
-
-    // test
+const CreateQuestions = ({ user }) => {
     const [tests, setTests] = useState([]);
     const [testTitles, setTestTitles] = useState([]);
     const [pickedTest, setPickedTest] = useState('');
@@ -25,7 +21,7 @@ const CreateQuestions = () => {
     const [numOfQuestions, setNumOfQuestions] = useState(0);
 
     const fetchTest = useCallback(async () => {
-        const id = userId;
+        const id = user.id;
 
         if(id) {
             try {
@@ -37,7 +33,7 @@ const CreateQuestions = () => {
                 console.log(error);
             }
         }
-    }, [userId, setTests]);
+    }, [user.id, setTests]);
 
     useEffect(() => {
         fetchTest();

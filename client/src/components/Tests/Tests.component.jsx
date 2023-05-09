@@ -44,10 +44,7 @@ const Tests = ({ user }) => {
                             <div className='test-single-test'>
                                 <h3>{test.title}</h3>
                                 <p>{test.description}</p>
-                                <div className='tst-footer'>
-                                    <p>Questions: {test.number_of_questions}</p>
-                                    <p>Created by: user</p>
-                                </div>
+                                <p id='tst-questions'>Questions: {test.number_of_questions}</p>
                             </div>
                         );
                     })

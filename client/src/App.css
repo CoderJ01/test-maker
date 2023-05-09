@@ -23,6 +23,7 @@ a:active {
     background: linear-gradient(0deg, rgba(223, 190 ,128, 1) 0%, rgba(251, 210, 132, 1) 100%);
 	border: 1px solid rgb(243, 225, 236);
 	min-height: 100vh;
+	padding-bottom: 4vh;
 }
 
 /* Desktop */

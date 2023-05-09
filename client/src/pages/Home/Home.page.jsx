@@ -16,7 +16,7 @@ const Home = ({ user }) => {
         <div className='home'>
             <UserTests user={user}/>
             <div className='home-bottom'>
-                <Tests/>
+                <Tests user={user}/>
                 <div className='home-bottom-right-panel'>
                     <Scores/>
                 </div>

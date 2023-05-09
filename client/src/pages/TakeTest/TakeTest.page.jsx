@@ -7,6 +7,7 @@ import './TakeTest.style.css';
 
 // URL
 import { baseURL } from '../../utils/urls';
+import { modifyQuestions, shuffleAnswerChoices } from './TakeTest.util';
 
 // other imports
 import axios from 'axios';
@@ -42,22 +43,13 @@ const TakeTest = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/questions/${id}`);
-
-                let modifiedQuestions = [];
-
-                // put answer choices per question in the same array
-                for(let i = 0; i < response.data.length; i++) {
-                    modifiedQuestions[i] = {
-                        question: response.data[i].question_header,
-                        choices: [
-                            response.data[i].correct_answer,
-                            response.data[i].second_choice,
-                            response.data[i].third_choice,
-                            response.data[i].fourth_choice
-                        ]
-                    }
+                
+                let modifiedQuestions = modifyQuestions(response.data);
+                
+                for(let i = 0; i < modifiedQuestions.length; i++) {
+                    shuffleAnswerChoices(modifiedQuestions[i].choices);
                 }
-
+                
                 setQuestions(modifiedQuestions)
             }
             catch(error) {

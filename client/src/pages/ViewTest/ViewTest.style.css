@@ -4,7 +4,6 @@
 }
 
 .vtq-question {
-    background-color: white;
     box-shadow: 0 29px 52px rgba(0, 0, 0, 0.40), 0 25px 10px rgba(0, 0, 0, 0.20);
 }
 
@@ -22,6 +21,7 @@
     }
 
     .vtq-question {
+        background-color: rgb(255, 241, 203);
         margin-top: 10vh;
         width: 15%;
     }
@@ -37,6 +37,7 @@
     }
 
     .vtq-question {
+        background-color: white;
         margin-left: 25%;
         margin-top: 5vh;
         width: 50%;

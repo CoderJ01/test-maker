@@ -5,6 +5,8 @@ header {
 }
 
 header h1,
-header p {
+header p,
+header a {
     color: white;
+    text-decoration: none;
 }

@@ -48,7 +48,7 @@ const UserTests = ({ user }) => {
                 (
                     <div className='ut-no-test'>
                         <br/>
-                        <p> You have not created a test yet!</p>
+                        <p style={{ textAlign: 'center' }}> You have not created a test yet!</p>
                         <br/>
                     </div>
                 ) :

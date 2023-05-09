@@ -1,5 +1,5 @@
 // React
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 // CSS
 import './Tests.style.css';
@@ -13,22 +13,23 @@ import axios from 'axios';
 const Tests = ({ user }) => {
     const [tests, setTests] = useState([]);
 
-    useEffect(() => {
+    const fetchTests = useCallback(async () => {
         const id = user.id;
         if(id) {
-            const fetchTests = async () => {
-                try {
-                    const response = await axios.get(`${baseURL}/api/tests/${user.id}`);
-                    console.log(response.data);
-                    setTests(response.data);
-                }
-                catch(error) {
-                    console.log(error);
-                }
+            try {
+                const response = await axios.get(`${baseURL}/api/tests/${user.id}`);
+                console.log(response.data);
+                setTests(response.data);
             }
-            fetchTests();
+            catch(error) {
+                console.log(error);
+            }
         }
     }, [user.id]);
+
+    useEffect(() => {
+        fetchTests();
+    }, [fetchTests]);
 
     return (
         <div className='tests'>

@@ -18,6 +18,7 @@ const TakeTest = ({ user }) => {
     const [pickedChoice, setPickedChoice] = useState('');
     const [test, setTest] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [number, setNumber] = useState(0);
 
     const fetchTest = useCallback(async () => {
         const id = testId;
@@ -62,11 +63,6 @@ const TakeTest = ({ user }) => {
         fetchQuestions();
     }, [fetchQuestions]);
 
-    console.log(testId);
-    console.log(pickedChoice);
-    console.log(test);
-    console.log(questions);
-
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
@@ -74,28 +70,21 @@ const TakeTest = ({ user }) => {
             <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>
                 <form>
-                    <h3>Question</h3>
+                    <h3>{questions[number].question}</h3>
                     <br/>
-                    <div>
-                        <input type='radio' name='test' onChange={e => setPickedChoice('A')}></input>
-                        <label>choice1</label>
-                    </div>
-                    <br/>
-                    <div>
-                        <input type='radio' name='test' onChange={e => setPickedChoice('B')}></input>
-                        <label>choice2</label>
-                    </div>
-                    <br/>
-                    <div>
-                        <input type='radio' name='test' onChange={e => setPickedChoice('C')}></input>
-                        <label>choice3</label>
-                    </div>
-                    <br/>
-                    <div>
-                        <input type='radio' name='test' onChange={e => setPickedChoice('D')}></input>
-                        <label>choice4</label>
-                    </div>
-                    <br/>
+                    {
+                        Array.apply(0, Array(4)).map(function(x, i) {
+                            return (
+                                <>
+                                <div>
+                                    <input type='radio' name='test' onChange={e => setPickedChoice(questions[number].choices[i])}></input>
+                                    <label>{questions[number].choices[i]}</label>
+                                </div>
+                                <br/>
+                                </>
+                            );
+                        })
+                    }
                     <div className='ttt-submit-answer'>
                         <button>Submit Answer</button>
                     </div>

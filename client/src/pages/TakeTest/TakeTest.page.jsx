@@ -19,6 +19,7 @@ const TakeTest = ({ user }) => {
     const [test, setTest] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [number, setNumber] = useState(0);
+    const [testAnswers, setTestAnswers] = useState([]);
 
     const fetchTest = useCallback(async () => {
         const id = testId;
@@ -63,6 +64,22 @@ const TakeTest = ({ user }) => {
         fetchQuestions();
     }, [fetchQuestions]);
 
+    const handleChoiceSubmission = (e) => {
+        e.preventDefault();
+
+        if(pickedChoice === '') {
+            alert('You have not selected an answer!');
+            return;
+        }
+
+        if(number + 1 <= test.number_of_questions) {
+            setNumber(number + 1);
+            setTestAnswers([...testAnswers, pickedChoice]);
+        }
+    }
+
+    console.log(testAnswers);
+
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
@@ -70,15 +87,15 @@ const TakeTest = ({ user }) => {
             <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>
                 <form>
-                    <h3>{questions[number].question}</h3>
+                    <h3>Question {number + 1}: {questions[number]?.question}</h3>
                     <br/>
                     {
                         Array.apply(0, Array(4)).map(function(x, i) {
                             return (
                                 <>
                                 <div>
-                                    <input type='radio' name='test' onChange={e => setPickedChoice(questions[number].choices[i])}></input>
-                                    <label>{questions[number].choices[i]}</label>
+                                    <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
+                                    <label>{questions[number]?.choices[i]}</label>
                                 </div>
                                 <br/>
                                 </>
@@ -86,7 +103,7 @@ const TakeTest = ({ user }) => {
                         })
                     }
                     <div className='ttt-submit-answer'>
-                        <button>Submit Answer</button>
+                        <button onClick={handleChoiceSubmission}>Submit Answer</button>
                     </div>
                 </form>
             </div>

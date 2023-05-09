@@ -1,24 +1,24 @@
-.bottom {
+.home-bottom {
     margin-top: 2vh;
 }
 
-.right-panel {
+.home-bottom-right-panel {
     margin-top: 2vh;
 }
 
 /* Desktop */
 @media screen and (min-width: 1280px) {
-    .bottom {
+    .home-bottom {
         margin-left: 5%;
         width: 90%;
     }
 
-    .bottom {
+    .home-bottom {
         display: flex;
         justify-content: space-around;
     }
 
-    .right-panel {
+    .home-bottom-right-panel {
         width: 35%;
     }
 }

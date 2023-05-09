@@ -1,6 +1,5 @@
 // React
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 // CSS
 import './CreateTest.style.css';
@@ -13,8 +12,6 @@ import { baseURL, baseURL_client } from '../../utils/urls';
 import axios from 'axios';
 
 const CreateTest = ({ user }) => {
-    const { userId } = useParams();
-
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selected, setSelected] = useState('10');
@@ -86,7 +83,7 @@ const CreateTest = ({ user }) => {
                 <button type='submit'>Confirm</button>
             </form>
             <div className='ct-create-questions'>
-                <a href={`${baseURL_client}/create-questions/${userId}`}>Create Test Questions</a>
+                <a href={`${baseURL_client}/create-questions`}>Create Test Questions</a>
             </div>
         </div>
     );

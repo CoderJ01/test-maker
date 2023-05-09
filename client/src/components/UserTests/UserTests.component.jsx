@@ -36,7 +36,7 @@ const UserTests = ({ user }) => {
     let navigate = useNavigate();
 
     const routeChange = () => {
-        let path = `/create-test/${user.id}`;
+        let path = `/create-test`;
         navigate(path);
     }
 

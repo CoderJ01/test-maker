@@ -44,7 +44,7 @@ const Tests = ({ user }) => {
                             <div className='test-single-test'>
                                 <h3>{test.title}</h3>
                                 <p>{test.description}</p>
-                                <p id='tst-questions'>Questions: {test.number_of_questions}</p>
+                                <p id='tst-questions'>Number of Questions: {test.number_of_questions}</p>
                             </div>
                         );
                     })

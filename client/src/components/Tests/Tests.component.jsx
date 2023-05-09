@@ -14,18 +14,21 @@ const Tests = ({ user }) => {
     const [tests, setTests] = useState([]);
 
     useEffect(() => {
-        const fetchTests = async () => {
-            try {
-                const response = await axios.get(`${baseURL}/api/tests`);
-                console.log(response.data);
-                setTests(response.data);
+        const id = user.id;
+        if(id) {
+            const fetchTests = async () => {
+                try {
+                    const response = await axios.get(`${baseURL}/api/tests/${user.id}`);
+                    console.log(response.data);
+                    setTests(response.data);
+                }
+                catch(error) {
+                    console.log(error);
+                }
             }
-            catch(error) {
-                console.log(error);
-            }
+            fetchTests();
         }
-        fetchTests();
-    }, []);
+    }, [user.id]);
 
     return (
         <div className='tests'>

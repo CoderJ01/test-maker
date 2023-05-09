@@ -1,6 +1,7 @@
 .take-test-test {
-   background-color: white;     
-   padding: 5px;
+   background-color: white;   
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.3);  
+   padding-bottom: 2vh;
 }
 
 .take-test-test h3 {
@@ -17,6 +18,10 @@
     border: 2px solid rgb(184, 99, 28);
 }
 
+.take-test-test input {
+    margin-left: 2%;
+}
+
 .take-test-test label {
     margin-left: 1%;
 }
@@ -26,6 +31,7 @@
     .take-test h2 {
         margin-top: 4vh;
     }
+
     .take-test-test {
         margin-left: 25%;
         margin-top: 4vh;
@@ -34,7 +40,15 @@
 }
 
 @media screen and (max-width: 1279px) {
-	
+    .take-test h2 {
+        margin-top: 2vh;
+    }
+
+	.take-test-test {
+        margin-left: 10%;
+        margin-top: 2vh;
+        width: 80%;
+    }
 }
 
 /* iPad Pro */

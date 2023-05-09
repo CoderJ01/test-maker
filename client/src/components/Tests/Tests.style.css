@@ -15,8 +15,9 @@
     justify-content: space-between;
 }
 
-.tst-footer p {
+#tst-questions {
     font-style: italic;
+    text-align: right;
 }
 
 /* Desktop */

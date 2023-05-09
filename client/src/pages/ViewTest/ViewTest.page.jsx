@@ -93,10 +93,10 @@ const ViewTest = ({ user }) => {
                             return (
                                 <div className='vtq-question'>
                                     <h3>{question.question_header}</h3>
-                                    <p>Correct answer: {question.correct_answer}</p>
-                                    <p>Choice: {question.second_choice}</p>
-                                    <p>Choice: {question.third_choice}</p>
-                                    <p>Choice: {question.fourth_choice}</p>
+                                    <p><span style={{ fontWeight: 'bold' }}>Correct answer: </span>{question.correct_answer}</p>
+                                    <p><span style={{ fontWeight: 'bold' }}>Choice: </span>{question.second_choice}</p>
+                                    <p><span style={{ fontWeight: 'bold' }}>Choice: </span>{question.third_choice}</p>
+                                    <p><span style={{ fontWeight: 'bold' }}>Choice: </span>{question.fourth_choice}</p>
                                 </div>
                             );
                         })

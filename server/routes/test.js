@@ -1,6 +1,9 @@
 // Express.js
 const router = require('express').Router();
 
+// Sequelize
+const { Op } = require('sequelize');
+
 // model
 const Test = require('../models/Test');
 const Questions = require('../models/Question');
@@ -35,8 +38,14 @@ router.post('/:userId', async (req, res) => {
     });
 });
 
-router.get('/', async (req, res) => {
-    const tests = await Test.findAll();
+router.get('/:userId', async (req, res) => {
+    const tests = await Test.findAll({
+        where: {
+            user_id: {
+                [Op.ne]: req.params.userId
+            }
+        }
+    });
     res.json(tests);
 });
 

@@ -22,7 +22,7 @@ const ViewTest = ({ user }) => {
 
         if(id) {
             try {
-                const response = await axios.get(`${baseURL}/api/tests/${id}`);
+                const response = await axios.get(`${baseURL}/api/tests/single-test/${id}`);
                 setTest(response.data);
             }
             catch(error) {

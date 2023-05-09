@@ -15,7 +15,7 @@ import Home from './pages/Home/Home.page';
 import CreateTest from './pages/CreateTest/CreateTest.page';
 import CreateQuestions from './pages/CreateQuestions/CreateQuestions.page';
 import ViewTest from './pages/ViewTest/ViewTest.page';
-
+import TakeTest from './pages/TakeTest/TakeTest.page';
 
 // util
 import { baseURL } from './utils/urls';
@@ -56,6 +56,7 @@ function App() {
           <Route path='/create-test' element={<CreateTest user={user}/>}/>
           <Route path='/create-questions' element={<CreateQuestions user={user}/>}/>
           <Route path='/view-test/:userId/:testId' element={<ViewTest user={user}/>}/>
+          <Route path='/take-test/:testId' element={<TakeTest user={user}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

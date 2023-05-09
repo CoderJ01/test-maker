@@ -5,9 +5,6 @@ import { useParams } from 'react-router-dom';
 // CSS
 import './CreateTest.style.css';
 
-// components
-import Register from '../../components/Register/Register.component';
-
 // util
 import { listOptions } from './CreateTest.util';
 import { baseURL, baseURL_client } from '../../utils/urls';
@@ -52,12 +49,6 @@ const CreateTest = () => {
             alert(error.response.data.msg);
             console.log(error);
         });
-    }
-
-    if(userId.length === 0) {
-        return (
-            <Register/>
-        );
     }
     
     return (

@@ -7,7 +7,6 @@ import './CreateQuestions.style.css';
 
 // components
 import Questions from '../../components/Questions/Questions.component';
-import Register from '../../components/Register/Register.component';
 
 // url
 import { baseURL } from '../../utils/urls';
@@ -70,12 +69,6 @@ const CreateQuestions = () => {
     useEffect(() => {
         retrieveIds();
     }, [retrieveIds]);
-
-    if(userId.length === 0) {
-        return (
-            <Register/>
-        );
-    }
 
     if(tests.length === 0) {
         return (

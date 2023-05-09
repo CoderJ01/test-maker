@@ -5,6 +5,9 @@ import { useParams } from 'react-router-dom';
 // CSS 
 import './ViewTest.style.css';
 
+// components
+import Register from '../../components/Register/Register.component';
+
 // URL
 import { baseURL } from '../../utils/urls';
 
@@ -55,6 +58,12 @@ const ViewTest = ({ user }) => {
     useEffect(() => {
         fetchQuestions();
     }, [fetchQuestions]);
+    
+    if(userId.length === 0) {
+        return (
+            <Register/>
+        );
+    }
 
     if(user.id !== userId) {
         return (

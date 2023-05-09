@@ -15,9 +15,10 @@ const Tests = ({ user }) => {
 
     const fetchTests = useCallback(async () => {
         const id = user.id;
+        
         if(id) {
             try {
-                const response = await axios.get(`${baseURL}/api/tests/${user.id}`);
+                const response = await axios.get(`${baseURL}/api/tests/${id}`);
                 setTests(response.data);
             }
             catch(error) {

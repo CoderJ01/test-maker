@@ -87,24 +87,34 @@ const TakeTest = ({ user }) => {
             <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>
                 <form>
-                    <h3>Question {number + 1}: {questions[number]?.question}</h3>
-                    <br/>
-                    {
-                        Array.apply(0, Array(4)).map(function(x, i) {
-                            return (
-                                <>
-                                <div>
-                                    <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
-                                    <label>{questions[number]?.choices[i]}</label>
-                                </div>
-                                <br/>
-                                </>
-                            );
-                        })
-                    }
-                    <div className='ttt-submit-answer'>
-                        <button onClick={handleChoiceSubmission}>Submit Answer</button>
-                    </div>
+                {
+                    number + 1 <= questions.length ? 
+                    (
+                        <>
+                        <h3>Question {number + 1}: {questions[number]?.question}</h3>
+                        <br/>
+                        {
+                            Array.apply(0, Array(4)).map(function(x, i) {
+                                return (
+                                    <>
+                                    <div>
+                                        <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
+                                        <label>{questions[number]?.choices[i]}</label>
+                                    </div>
+                                    <br/>
+                                    </>
+                                );
+                            })
+                        }
+                        <div className='ttt-submit-answer'>
+                            <button onClick={handleChoiceSubmission}>Submit Answer</button>
+                        </div>
+                        </>
+                    ) : 
+                    (
+                        <h3>You have completed the test!</h3>
+                    )
+                }
                 </form>
             </div>
         </div>

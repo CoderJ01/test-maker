@@ -89,7 +89,7 @@ const CreateQuestions = ({ user }) => {
                     ))}
                 </select>
             </div>
-            <Questions testId={testId} numOfQuestions={numOfQuestions}/>
+            <Questions user={user} testId={testId} numOfQuestions={numOfQuestions}/>
         </div>
     );
 }

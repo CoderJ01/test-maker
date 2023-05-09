@@ -1,12 +1,64 @@
 // React 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 
 // CSS
 import './TakeTest.style.css';
 
+// URL
+import { baseURL } from '../../utils/urls';
+
+// other imports
+import axios from 'axios';
+
 const TakeTest = ({ user }) => {
+    const { testId } = useParams();
+
     const [pickedChoice, setPickedChoice] = useState('');
+    const [test, setTest] = useState([]);
+    const [questions, setQuestions] = useState([]);
+
+    const fetchTest = useCallback(async () => {
+        const id = testId;
+
+        if(id) {
+            try {
+                const response = await axios.get(`${baseURL}/api/tests/single-test/${id}`);
+                setTest(response.data);
+            }
+            catch(error) {
+                console.log(error);
+            }
+        }
+    }, [testId]);
+
+    useEffect(() => {
+        fetchTest();
+    }, [fetchTest]);
+
+    const fetchQuestions = useCallback(async () => {
+        const id = testId;
+
+        if(id) {
+            try {
+                const response = await axios.get(`${baseURL}/api/questions/${id}`);
+                setQuestions(response.data)
+            }
+            catch(error) {
+                console.log(error);
+            }
+        }
+    }, [testId]);
+
+    useEffect(() => {
+        fetchQuestions();
+    }, [fetchQuestions]);
+
+    console.log(testId);
     console.log(pickedChoice);
+    console.log(test);
+    console.log(questions);
+
     return (
         <div className='take-test'>
             <h2>Test Name</h2>

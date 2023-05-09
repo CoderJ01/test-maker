@@ -6,6 +6,10 @@
     box-shadow: rgba(236, 133, 42, 0.4) 0px 40px 50px -10px, rgba(236, 133, 42, 0.2) 0px 20px 20px -10px;
 }
 
+.test-single-test a {
+    color: black;
+}
+
 .tests h3 {
     text-align: center;
 }

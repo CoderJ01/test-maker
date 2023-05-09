@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// CSS 
+import './ViewTest.style.css';
+
 const ViewTest = () => {
     return (
         <div className='view-test'>

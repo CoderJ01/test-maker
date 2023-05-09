@@ -43,7 +43,8 @@ router.get('/other-users/:userId', async (req, res) => {
         where: {
             user_id: {
                 [Op.ne]: req.params.userId
-            }
+            },
+            complete: true
         }
     });
     res.json(tests);

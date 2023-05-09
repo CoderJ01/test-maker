@@ -38,7 +38,7 @@ router.post('/:userId', async (req, res) => {
     });
 });
 
-router.get('/:userId', async (req, res) => {
+router.get('/other-users/:userId', async (req, res) => {
     const tests = await Test.findAll({
         where: {
             user_id: {
@@ -49,7 +49,7 @@ router.get('/:userId', async (req, res) => {
     res.json(tests);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/single-test/:id', async (req, res) => {
     const test = await Test.findOne({
         where: {
             id: req.params.id

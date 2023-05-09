@@ -1,6 +1,36 @@
+.take-test-test {
+   background-color: white;     
+   padding: 5px;
+}
+
+.take-test-test h3 {
+    text-align: center;
+}
+
+.ttt-submit-answer {
+    display: flex;
+    justify-content: center;
+}
+
+.ttt-submit-answer button {
+    background-color: rgb(184, 99, 28);
+    border: 2px solid rgb(184, 99, 28);
+}
+
+.take-test-test label {
+    margin-left: 1%;
+}
+
 /* Desktop */
 @media screen and (min-width: 1280px) {
-
+    .take-test h2 {
+        margin-top: 4vh;
+    }
+    .take-test-test {
+        margin-left: 25%;
+        margin-top: 4vh;
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 1279px) {

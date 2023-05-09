@@ -42,7 +42,23 @@ const TakeTest = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/questions/${id}`);
-                setQuestions(response.data)
+
+                let modifiedQuestions = [];
+
+                // put answer choices per question in the same array
+                for(let i = 0; i < response.data.length; i++) {
+                    modifiedQuestions[i] = {
+                        question: response.data[i].question_header,
+                        choices: [
+                            response.data[i].correct_answer,
+                            response.data[i].second_choice,
+                            response.data[i].third_choice,
+                            response.data[i].fourth_choice
+                        ]
+                    }
+                }
+
+                setQuestions(modifiedQuestions)
             }
             catch(error) {
                 console.log(error);

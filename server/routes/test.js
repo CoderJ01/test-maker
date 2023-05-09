@@ -40,6 +40,15 @@ router.get('/', async (req, res) => {
     res.json(tests);
 });
 
+router.get('/:id', async (req, res) => {
+    const test = await Test.findOne({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.send(test);
+});
+
 router.get('/all/:userId', async (req, res) => {
     const userTests = await Test.findAll({
         where: {

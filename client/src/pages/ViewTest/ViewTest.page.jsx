@@ -56,25 +56,37 @@ const ViewTest = () => {
         fetchQuestions();
     }, [fetchQuestions]);
 
+
     return (
         <div className='view-test'>
             <h2>{test.title}</h2>
             <p id='vt-description'>{test.description}</p>
-            <div className='view-test-questions'>
             {
-                questions.map(question => {
-                    return (
-                        <div className='vtq-question'>
-                            <h3>{question.question_header}</h3>
-                            <p>Correct answer: {question.correct_answer}</p>
-                            <p>Choice: {question.second_choice}</p>
-                            <p>Choice: {question.third_choice}</p>
-                            <p>Choice: {question.fourth_choice}</p>
-                        </div>
-                    );
-                })
+                questions.length === 0 ? 
+                (
+                    <>
+                        <br/>
+                        <p style={{ textAlign: 'center' }}>This test was never completed!</p>
+                    </>
+                ) : 
+                (
+                    <div className='view-test-questions'>
+                    {
+                        questions.map(question => {
+                            return (
+                                <div className='vtq-question'>
+                                    <h3>{question.question_header}</h3>
+                                    <p>Correct answer: {question.correct_answer}</p>
+                                    <p>Choice: {question.second_choice}</p>
+                                    <p>Choice: {question.third_choice}</p>
+                                    <p>Choice: {question.fourth_choice}</p>
+                                </div>
+                            );
+                        })
+                    }
+                    </div>
+                )
             }
-            </div>
         </div>
     );
 }

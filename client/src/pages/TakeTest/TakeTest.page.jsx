@@ -61,9 +61,9 @@ const TakeTest = ({ user }) => {
 
     return (
         <div className='take-test'>
-            <h2>Test Name</h2>
+            <h2>{test.title}</h2>
             <br/>
-            <p style={{ textAlign: 'center' }}>test description</p>
+            <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>
                 <form>
                     <h3>Question</h3>

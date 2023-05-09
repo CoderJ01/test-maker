@@ -11,7 +11,7 @@ import { baseURL } from '../../utils/urls';
 // other imports
 import axios from 'axios';
 
-const ViewTest = () => {
+const ViewTest = ({ user }) => {
     const { userId, testId } = useParams();
 
     const [test, setTest] = useState([]);
@@ -56,6 +56,14 @@ const ViewTest = () => {
         fetchQuestions();
     }, [fetchQuestions]);
 
+    if(user.id !== userId) {
+        return (
+            <>
+            <br/>
+            <h2>You not not authorized to view this page!</h2>
+            </>
+        );
+    }
 
     return (
         <div className='view-test'>

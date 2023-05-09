@@ -23,7 +23,6 @@ const ViewTest = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/tests/${id}`);
-                console.log(response.data)
                 setTest(response.data);
             }
             catch(error) {
@@ -42,7 +41,6 @@ const ViewTest = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/questions/${id}`);
-                console.log(response.data)
                 setQuestions(response.data)
 
             }

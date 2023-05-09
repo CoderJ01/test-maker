@@ -20,7 +20,6 @@ const UserTests = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/tests/all/${id}`);
-                console.log(response.data);
                 setTests(response.data);
             }
             catch(error) {

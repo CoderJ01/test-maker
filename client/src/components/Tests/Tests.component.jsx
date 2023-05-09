@@ -18,7 +18,6 @@ const Tests = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/tests/${user.id}`);
-                console.log(response.data);
                 setTests(response.data);
             }
             catch(error) {

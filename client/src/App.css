@@ -34,7 +34,8 @@ a:active {
 }
 
 @media screen and (max-width: 1279px) {
-	h1 {
+	h1,
+	header a {
 		font-size: 3rem;
 	}
 
@@ -69,7 +70,8 @@ a:active {
 
 /* Surface Duo */
 @media screen and (max-width: 540px) {
-	h1 {
+	h1,
+	header a {
 		font-size: 2rem;
 	}
 

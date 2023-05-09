@@ -69,7 +69,7 @@ const CreateQuestions = ({ user }) => {
     if(tests.length === 0) {
         return (
             <div className='create-questions'>
-                <h2>You have yet to create a test</h2>
+                <h2>You have yet to create a new test!</h2>
             </div>
         );
     }

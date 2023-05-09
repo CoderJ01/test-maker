@@ -39,7 +39,8 @@ a:active {
 		font-size: 3rem;
 	}
 
-	h2 {
+	h2,
+	h3 {
 		font-size: 2rem;
 	}
 
@@ -75,7 +76,8 @@ a:active {
 		font-size: 2rem;
 	}
 
-	h2 {
+	h2,
+	h3 {
 		font-size: 20px;
 	}
 

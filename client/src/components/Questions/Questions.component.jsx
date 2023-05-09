@@ -10,7 +10,7 @@ import { baseURL } from '../../utils/urls';
 // other imports
 import axios from 'axios';
 
-const Questions = ({ testId, numOfQuestions }) => {
+const Questions = ({ user, testId, numOfQuestions }) => {
     const [question, setQuestion] = useState('');
     const [correct, setCorrect] = useState('');
     const [choice2, setChoice2] = useState('');
@@ -65,17 +65,21 @@ const Questions = ({ testId, numOfQuestions }) => {
             return;
         }
 
-        axios.post(`${baseURL}/api/questions/${testId}`, {
-            questions: questions
-        })
-        .then(response => {
-            console.log(response);
-            alert(response.data.msg);
-            window.location.reload(false);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+        const id = user.id;
+
+        if(id) {
+            axios.post(`${baseURL}/api/questions/${testId}`, {
+                questions: questions
+            })
+            .then(response => {
+                console.log(response);
+                alert(response.data.msg);
+                window.location.reload(false);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
     }
 
     console.log(questions)

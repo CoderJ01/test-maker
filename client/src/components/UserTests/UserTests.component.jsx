@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './UserTests.style.css';
 
 // URL
-import { baseURL } from '../../utils/urls';
+import { baseURL, baseURL_client } from '../../utils/urls';
 
 // other imports
 import axios from 'axios';
@@ -58,7 +58,7 @@ const UserTests = ({ user }) => {
                         tests.map(test => {
                             return (
                                 <div className='utd-single-test'>
-                                    <a href={`${baseURL}/viewtest/${user.id}/${test.id}`} target='_blank' rel='noopener noreferrer'><h3>{test.title}</h3></a>
+                                    <a href={`${baseURL_client}/viewtest/${user.id}/${test.id}`} target='_blank' rel='noopener noreferrer'><h3>{test.title}</h3></a>
                                     <p>{test.description}</p>
                                     {
                                         test.complete === true ? 

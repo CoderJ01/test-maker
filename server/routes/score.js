@@ -4,6 +4,7 @@ const router = require('express').Router();
 // model
 const Score = require('../models/Score');
 const Question = require('../models/Question');
+const Test = require('../models/Test');
 
 router.get('/:userId', async (req, res) => {
     const scores = await Score.findAll({
@@ -11,7 +12,21 @@ router.get('/:userId', async (req, res) => {
             user_id: req.params.userId
         }
     });
-    res.send(scores);
+
+    let tests = [];
+
+    for(let i = 0; i < scores.length; i++) {
+        tests[i] = await Test.findOne({
+            where: {
+                id: scores[i].dataValues.test_id
+            }
+        });
+    }
+
+    res.send({
+        scores: scores,
+        tests: tests
+    });
 });
 
 router.post('/:testId/:userId', async (req, res) => {

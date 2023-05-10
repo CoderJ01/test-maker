@@ -46,7 +46,10 @@ router.post('/register', async (req, res) => {
         password: hashedPass
     })
     .then(response => {
-        res.json(response);
+        res.json({
+            msg: 'You have successfully registered!',
+            data: response
+        });
     })
     .catch(error => {
         res.json(error);

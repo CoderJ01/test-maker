@@ -42,7 +42,7 @@ const Register = () => {
             }
         )
         .then(response => {
-            console.log(response);
+            alert(response.data.msg);
         })
         .catch(error => {
             console.log(error);

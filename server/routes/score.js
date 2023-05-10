@@ -5,8 +5,13 @@ const router = require('express').Router();
 const Score = require('../models/Score');
 const Question = require('../models/Question');
 
-router.get('/', (req, res) => {
-    res.send('Hello World');
+router.get('/:userId', async (req, res) => {
+    const scores = await Score.findAll({
+        where: {
+            user_id: req.params.userId
+        }
+    });
+    res.send(scores);
 });
 
 router.post('/:testId/:userId', async (req, res) => {

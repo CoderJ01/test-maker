@@ -97,8 +97,6 @@ const TakeTest = ({ user }) => {
         }
     }
 
-    console.log(testAnswers);
-
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
@@ -117,11 +115,22 @@ const TakeTest = ({ user }) => {
                             Array.apply(0, Array(4)).map(function(x, i) {
                                 return (
                                     <>
-                                    <div>
-                                        <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
-                                        <label>{questions[number]?.choices[i]}</label>
-                                    </div>
-                                    <br/>
+                                    {
+                                        questions[number]?.choices[i] === '' ? 
+                                        (
+                                            ''
+                                        ) :
+                                        (
+                                            <>
+                                            <div>
+                                                <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
+                                                <label>{questions[number]?.choices[i]}</label>
+                                            </div>
+                                            <br/>
+                                            </>
+                                        )
+                                    }
+
                                     </>
                                 );
                             })

@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 
 // model
 const User = require('../models/User');
+const Test = require('../models/Test');
 
 // other imports
 const generateCookie = require('../util/generateCookie');
@@ -97,6 +98,22 @@ router.get('/:id', async (req, res) => {
     await User.findOne({
         where: {
             id: req.params.id
+        }
+    }).then(response => {
+        res.json(response);
+    });
+});
+
+router.get('/test-maker/:testId', async (req, res) => {
+    const test = await Test.findOne({
+        where: {
+            id: req.params.testId
+        }
+    });
+    
+    await User.findOne({
+        where: {
+            id: test.user_id
         }
     }).then(response => {
         res.json(response);

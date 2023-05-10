@@ -11,6 +11,8 @@
 }
 
 .utd-single-test {
+    animation-name: appear;
+    animation-duration: 4s;
     box-shadow: rgba(236, 133, 42, 0.4) 0px 10px 30px;
 }
 

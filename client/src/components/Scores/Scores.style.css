@@ -3,6 +3,8 @@
 }
 
 .scores-single-score {
+    animation-name: appear;
+    animation-duration: 4s;
     margin-left: 15%;
     width: 70%;
 }

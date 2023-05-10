@@ -38,6 +38,11 @@ router.post('/:userId', async (req, res) => {
     });
 });
 
+router.get('/all-tests', async (req, res) => {
+    const tests = await Test.findAll();
+    res.send(tests);
+});
+
 router.get('/other-users/:userId', async (req, res) => {
     const tests = await Test.findAll({
         where: {

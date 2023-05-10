@@ -3,8 +3,6 @@
 }
 
 .scores-single-score {
-    display: flex;
-    justify-content: space-between;
     margin-left: 15%;
     width: 70%;
 }
@@ -12,6 +10,8 @@
 /* Desktop */
 @media screen and (min-width: 1280px) {
     .scores-single-score {
+        background-color: rgb(255, 241, 203);
+        box-shadow: 0 14px 28px rgba(236, 133, 42, 0.25), 0 10px 10px rgba(236, 133, 42, 0.22);
         margin-top: 3vh;
     }
 }
@@ -23,6 +23,8 @@
     }
 
     .scores-single-score {
+        background-color: white;
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
         margin-top: 1vh;
     }
 }

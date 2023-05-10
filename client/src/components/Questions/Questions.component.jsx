@@ -1,5 +1,6 @@
 // React 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // CSS 
 import './Questions.style.css';
@@ -57,6 +58,8 @@ const Questions = ({ user, testId, numOfQuestions }) => {
         setQuestionNumber(questionNumber + 1);
     }
 
+    let navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -74,7 +77,8 @@ const Questions = ({ user, testId, numOfQuestions }) => {
             .then(response => {
                 console.log(response);
                 alert(response.data.msg);
-                window.location.reload(false);
+                let path = '/';
+                navigate(path);
             })
             .catch(error => {
                 console.log(error);

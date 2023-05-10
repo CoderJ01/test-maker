@@ -39,4 +39,4 @@ Score.init(
     }
 );
 
-module.export = Score;
+module.exports = Score;

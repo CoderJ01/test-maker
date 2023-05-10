@@ -7,7 +7,8 @@
     text-align: center;
 }
 
-.ttt-submit-answer {
+.ttt-submit-answer,
+.tt-submit-test {
     display: flex;
     justify-content: center;
 }

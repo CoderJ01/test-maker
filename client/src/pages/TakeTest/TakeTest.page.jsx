@@ -146,6 +146,10 @@ const TakeTest = ({ user }) => {
                 }
                 </form>
             </div>
+            <br/><br/>
+            <div className='tt-submit-test'>
+                <button>Submit Test</button>     
+            </div>
         </div>
     );
 }

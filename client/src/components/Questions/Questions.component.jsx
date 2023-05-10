@@ -41,7 +41,7 @@ const Questions = ({ user, testId, numOfQuestions }) => {
         }
 
         if(questionNumber === numOfQuestions + 1) {
-            alert(`The maximun number of questions allowed is ${numOfQuestions}!`);
+            alert(`The maximum number of questions allowed is ${numOfQuestions}!`);
             return;
         }
         

@@ -67,7 +67,7 @@ const CreateTest = ({ user }) => {
                 </div>
                 <br/>
                 <div>
-                    <label htmlFor='questions'>Number of Questions:</label><br/>
+                    <label htmlFor='questions'>Maximum Number of Questions:</label><br/>
                     <select 
                         value={selected} 
                         onChange={e => setSelected(e.target.value)}

@@ -1,6 +1,6 @@
 // React 
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // CSS
 import './TakeTest.style.css';
@@ -83,6 +83,8 @@ const TakeTest = ({ user }) => {
         fetchUser();
     }, [fetchUser]);
 
+    let navigate = useNavigate();
+
     const handleChoiceSubmission = (e) => {
         e.preventDefault();
 
@@ -117,6 +119,8 @@ const TakeTest = ({ user }) => {
             .then(response => {
                 console.log(response);
                 alert('Test has been successfully submitted!');
+                let path = `/`;
+                navigate(path);
             })
             .catch(error => {
                 console.log(error);

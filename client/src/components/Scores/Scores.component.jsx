@@ -12,6 +12,7 @@ import axios from 'axios';
 
 const Scores = ({ user }) => {
     const [scores, setScores] = useState([]);
+    const [tests, setTests] = useState([]);
 
     const fetchScores = useCallback(async () => {
         const id = user.id;
@@ -19,8 +20,8 @@ const Scores = ({ user }) => {
         if(id) {
             try {
                 const response = await axios.get(`${baseURL}/api/scores/${id}`);
-                console.log(response.data);
-                setScores(response.data);
+                setScores(response.data.scores);
+                setTests(response.data.tests);
             }
             catch(error) {
                 console.log(error);
@@ -36,10 +37,10 @@ const Scores = ({ user }) => {
         <div className='scores'>
             <h2>Scores</h2>
             {
-                scores.map(score => {
+                scores.map((score , i) => {
                     return (
                         <div className='scores-single-score'>
-                            <p><span style={{ fontWeight: 'bold' }}>Test: </span>Test Name</p>
+                            <p><span style={{ fontWeight: 'bold' }}>Test: </span>{tests[i]?.title}</p>
                             <p><span style={{ fontWeight: 'bold' }}>Score: </span>{score?.score}</p>
                         </div>
                     );

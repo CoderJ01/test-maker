@@ -12,7 +12,7 @@ Score.init(
             primaryKey: true
         },
         score: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         test_id: {

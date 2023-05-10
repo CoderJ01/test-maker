@@ -97,6 +97,33 @@ const TakeTest = ({ user }) => {
         }
     }
 
+    const handleTestSubmission = (e) => {
+        e.preventDefault();
+
+        if(number + 1 <= test.number_of_questions) {
+           alert('You have not completed the test yet!');
+           return;
+        }
+
+        const test_id = testId;
+        const user_id = user.id;
+
+        if(test_id && user_id) {
+            axios.post(`${baseURL}/api/scores/${test_id}/${user_id}`,
+                {
+                    answers: testAnswers
+                }
+            )
+            .then(response => {
+                console.log(response);
+                alert('Test has been successfully submitted!');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+    }
+
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
@@ -148,7 +175,7 @@ const TakeTest = ({ user }) => {
             </div>
             <br/><br/>
             <div className='tt-submit-test'>
-                <button>Submit Test</button>     
+                <button onClick={handleTestSubmission}>Submit Test</button>     
             </div>
         </div>
     );

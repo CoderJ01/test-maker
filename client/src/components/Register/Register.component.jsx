@@ -1,5 +1,6 @@
 // React
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // CSS
 import './Register.style.css';
@@ -15,6 +16,8 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    let navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,6 +46,7 @@ const Register = () => {
         )
         .then(response => {
             alert(response.data.msg);
+            navigate('/login');
         })
         .catch(error => {
             console.log(error);

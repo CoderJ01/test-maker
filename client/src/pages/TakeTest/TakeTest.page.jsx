@@ -18,6 +18,7 @@ const TakeTest = ({ user }) => {
     const [pickedChoice, setPickedChoice] = useState('');
     const [test, setTest] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [testMaker, setTestMaker] = useState([]);
     const [number, setNumber] = useState(0);
     const [testAnswers, setTestAnswers] = useState([]);
 
@@ -64,6 +65,24 @@ const TakeTest = ({ user }) => {
         fetchQuestions();
     }, [fetchQuestions]);
 
+    const fetchUser = useCallback(async () => {
+        const id = testId;
+
+        if(id) {
+            try {
+                const response = await axios.get(`${baseURL}/api/users/test-maker/${id}`);
+                setTestMaker(response.data);
+            }
+            catch(error) {
+                console.log(error);
+            }
+        }
+    }, [testId]);
+
+    useEffect(() => {
+        fetchUser();
+    }, [fetchUser]);
+
     const handleChoiceSubmission = (e) => {
         e.preventDefault();
 
@@ -83,6 +102,7 @@ const TakeTest = ({ user }) => {
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
+            <h3 style={{ fontStyle: 'italic', textAlign: 'center' }}>{testMaker?.username}</h3>
             <br/>
             <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>

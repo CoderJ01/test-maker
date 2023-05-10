@@ -41,7 +41,7 @@ const Scores = ({ user }) => {
                     return (
                         <div className='scores-single-score'>
                             <p><span style={{ fontWeight: 'bold' }}>Test: </span>{tests[i]?.title}</p>
-                            <p><span style={{ fontWeight: 'bold' }}>Score: </span>{score?.score}</p>
+                            <p><span style={{ fontWeight: 'bold' }}>Score: </span>{(score?.score) * 100}%</p>
                         </div>
                     );
                 })

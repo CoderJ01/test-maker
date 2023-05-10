@@ -24,7 +24,7 @@ router.post('/:testId/:userId', async (req, res) => {
     }
 
     const score = await Score.create({
-        score: count/questions.length,
+        score: (count/questions.length).toFixed(2),
         test_id: req.params.testId,
         user_id: req.params.userId
     });

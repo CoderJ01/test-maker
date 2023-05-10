@@ -102,7 +102,7 @@ const TakeTest = ({ user }) => {
     return (
         <div className='take-test'>
             <h2>{test.title}</h2>
-            <h3 style={{ fontStyle: 'italic', textAlign: 'center' }}>{testMaker?.username}</h3>
+            <h3 style={{ fontStyle: 'italic', textAlign: 'center' }}>by {testMaker?.username}</h3>
             <br/>
             <p style={{ textAlign: 'center' }}>{test.description}</p>
             <div className='take-test-test'>

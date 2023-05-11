@@ -10,6 +10,7 @@ const Test = require('../models/Test');
 
 // other imports
 const generateCookie = require('../util/generateCookie');
+const validateEmail = require('../util/validateEmail');
 
 router.post('/register', async (req, res) => {
     // hash
@@ -40,20 +41,20 @@ router.post('/register', async (req, res) => {
         return;
     }
 
-    User.create({
+    // create user
+    const newUser = await User.create({
         username: req.body.username,
         email: req.body.email,
         password: hashedPass
-    })
-    .then(response => {
-        res.json({
-            msg: 'You have successfully registered!',
-            data: response
-        });
-    })
-    .catch(error => {
-        res.json(error);
-    })
+    });
+
+    // validate user's email
+    validateEmail(newUser.username, newUser.email, 'newUser');
+
+    res.json({
+        msg: 'You have successfully registered!',
+        data: newUser
+    });
 });
 
 router.post('/login', async (req, res) => {

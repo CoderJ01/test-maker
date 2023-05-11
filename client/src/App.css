@@ -18,6 +18,10 @@ a:active {
 	opacity: 0.7;
 }
 
+select {
+    color: black;
+}
+
 .App {
 	background: rgb(223, 190, 128);
     background: linear-gradient(0deg, rgba(223, 190 ,128, 1) 0%, rgba(251, 210, 132, 1) 100%);

@@ -86,8 +86,6 @@ const Questions = ({ user, testId, numOfQuestions }) => {
         }
     }
 
-    console.log(questions)
-
     return (
         <div className='questions'>
             <form>

@@ -1,11 +1,16 @@
 .logout {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
 }
 
 @media screen and (min-width: 1280px) {
     .logout {
         margin-top: 45vh;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .logout {
+        margin-top: 5vh;
     }
 }

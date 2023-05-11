@@ -3,3 +3,9 @@
     justify-content: center;
     margin-top: 5vh;
 }
+
+@media screen and (min-width: 1280px) {
+    .logout {
+        margin-top: 45vh;
+    }
+}

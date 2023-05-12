@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
     validateEmail(newUser.username, newUser.email, 'newUser');
 
     res.json({
-        msg: 'You have successfully registered!',
+        msg: `Hello ${newUser.username}! An email has been sent to verify your email.`,
         data: newUser
     });
 });

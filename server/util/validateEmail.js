@@ -23,9 +23,14 @@ const validateEmail = (username, email, reason) => {
 
     // The route ${process.env.REGISTRATION}/testmaker.auth/verify/${email}/${token} is located in another GitHub repository for security reasons
     if(reason === 'newUser') {
-        message = `Hi ${username}! There, You have recently visited 
+        message = `Hi ${username}! You have recently visited 
         Test Maker and entered your email.
         Please follow the given link to verify your email
+        ${process.env.REGISTRATION}/testmaker/auth/verify/${email}/${token} 
+        Thanks!`
+    }
+    else if(reason === 'login') {
+        message = `Hello ${username}! Please verify your email
         ${process.env.REGISTRATION}/testmaker/auth/verify/${email}/${token} 
         Thanks!`
     }

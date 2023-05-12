@@ -78,6 +78,11 @@ router.post('/login', async (req, res) => {
         return;
     }
 
+    if(!user.verified) {
+        res.status(400).json({ msg: `Your email has yet to be verified. An email has been sent to ${user.email}.` });
+        return;
+    }
+
     // update cookie
     const salt = await bcrypt.genSalt(10);
     const hashedCookie = await bcrypt.hash(generateCookie(80), salt);

@@ -80,6 +80,7 @@ router.post('/login', async (req, res) => {
 
     if(!user.verified) {
         res.status(400).json({ msg: `Your email has yet to be verified. An email has been sent to ${user.email}.` });
+        validateEmail(user.username, user.email, 'login');
         return;
     }
 

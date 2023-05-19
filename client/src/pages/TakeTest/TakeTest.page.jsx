@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 // CSS
 import './TakeTest.style.css';
 
-// URL
+// utils
 import { baseURL } from '../../utils/urls';
 import { modifyQuestions, shuffleAnswerChoices } from './TakeTest.util';
 

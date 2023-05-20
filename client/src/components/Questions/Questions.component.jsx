@@ -18,9 +18,6 @@ const Questions = ({ user, testId, numOfQuestions }) => {
     const [choice3, setChoice3] = useState('');
     const [choice4, setChoice4] = useState('');
     const [questionNumber, setQuestionNumber] = useState(1);
-
-    console.log(numOfQuestions);
-
     const [questions, setQuestions] = useState([]);
 
     const addQuestion = (e) => {

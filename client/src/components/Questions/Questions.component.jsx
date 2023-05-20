@@ -74,8 +74,7 @@ const Questions = ({ user, testId, numOfQuestions }) => {
             .then(response => {
                 console.log(response);
                 alert(response.data.msg);
-                let path = '/';
-                navigate(path);
+                navigate('/');
             })
             .catch(error => {
                 console.log(error);

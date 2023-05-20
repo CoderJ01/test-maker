@@ -18,9 +18,6 @@ const Questions = ({ user, testId, numOfQuestions }) => {
     const [choice3, setChoice3] = useState('');
     const [choice4, setChoice4] = useState('');
     const [questionNumber, setQuestionNumber] = useState(1);
-
-    console.log(numOfQuestions);
-
     const [questions, setQuestions] = useState([]);
 
     const addQuestion = (e) => {
@@ -77,8 +74,7 @@ const Questions = ({ user, testId, numOfQuestions }) => {
             .then(response => {
                 console.log(response);
                 alert(response.data.msg);
-                let path = '/';
-                navigate(path);
+                navigate('/');
             })
             .catch(error => {
                 console.log(error);

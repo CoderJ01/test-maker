@@ -34,7 +34,7 @@ const CreateTest = ({ user }) => {
         const id = user.id;
 
         if(id) {
-            axios.post(`${baseURL}/api/tests/${user.id}`, 
+            axios.post(`${baseURL}/api/tests/${id}`, 
             {
                 title: title,
                 description: description,

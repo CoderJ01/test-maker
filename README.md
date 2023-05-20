@@ -7,6 +7,7 @@ On this website, a user can create tests. Said user can also take tests created 
 * React.js
 * mySQL database
 * Sequelize (object-relational mapper)
+* Express.js
 * RESTful API
 
 ## Screenshot of Website

@@ -17,6 +17,7 @@ import CreateTest from './pages/CreateTest/CreateTest.page';
 import CreateQuestions from './pages/CreateQuestions/CreateQuestions.page';
 import ViewTest from './pages/ViewTest/ViewTest.page';
 import TakeTest from './pages/TakeTest/TakeTest.page';
+import Update from './pages/Update/Update.page';
 
 // util
 import { baseURL } from './utils/urls';
@@ -58,6 +59,7 @@ function App() {
           <Route path='/create-questions' element={user.length === 0 ? <AccessDenied/> : <CreateQuestions user={user}/>}/>
           <Route path='/view-test/:userId/:testId' element={user.length === 0 ? <AccessDenied/> : <ViewTest user={user}/>}/>
           <Route path='/take-test/:testId' element={user.length === 0 ? <AccessDenied/> : <TakeTest user={user}/>}/>
+          <Route path='/update-info' element={user.length === 0 ? <AccessDenied/> : <Update user={user}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

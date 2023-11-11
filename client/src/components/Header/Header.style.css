@@ -18,3 +18,15 @@ header a {
 .nav-to-update:active {
     text-decoration: none;
 }
+
+/* iPad */
+@media screen and (max-width: 768px) {
+    .nav-to-update {
+        font-size: 17px;
+    }
+}
+
+/* Surface Duo */
+@media screen and (max-width: 540px) {
+
+}

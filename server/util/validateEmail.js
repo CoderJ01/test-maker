@@ -34,6 +34,10 @@ const validateEmail = (username, email, reason) => {
         ${process.env.REGISTRATION}/testmaker/auth/verify/${email}/${token} 
         Thanks!`
     }
+    else if(reason === 'updateEmail') {
+        message = `You have recently submitted a request to update your email.
+        Please verify the update by clicking on the link: ${process.env.REGISTRATION}/testmaker/auth/verify/${email}/${token}`
+    }
       
     const mailConfigurations = {
         from: 'joshua001testmaker@gmail.com',

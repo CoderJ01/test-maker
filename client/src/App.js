@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/Header/Header.component';
 import Register from './components/Register/Register.component';
 import Login from './components/Login/Login.component';
+import AccessDenied from './components/AccessDenied/AccessDenied.component';
 
 // pages
 import Home from './pages/Home/Home.page';
@@ -53,10 +54,10 @@ function App() {
           <Route path='/' element={user.length !== 0 ? <Home user={user}/> : <Navigate to='/register'/>}/>
           <Route path='/register' element={user.length === 0 ? <Register/> : <Navigate to='/'/>}/>
           <Route path='/login' element={user.length === 0 ? <Login/> : <Navigate to='/'/>}/>
-          <Route path='/create-test' element={<CreateTest user={user}/>}/>
-          <Route path='/create-questions' element={<CreateQuestions user={user}/>}/>
-          <Route path='/view-test/:userId/:testId' element={<ViewTest user={user}/>}/>
-          <Route path='/take-test/:testId' element={<TakeTest user={user}/>}/>
+          <Route path='/create-test' element={user.length === 0 ? <AccessDenied/> : <CreateTest user={user}/>}/>
+          <Route path='/create-questions' element={user.length === 0 ? <AccessDenied/> : <CreateQuestions user={user}/>}/>
+          <Route path='/view-test/:userId/:testId' element={user.length === 0 ? <AccessDenied/> : <ViewTest user={user}/>}/>
+          <Route path='/take-test/:testId' element={user.length === 0 ? <AccessDenied/> : <TakeTest user={user}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

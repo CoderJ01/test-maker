@@ -150,7 +150,7 @@ router.put('/:id', async (req, res) => {
         return res.status(400).json({ msg: 'Email must be unique!' });
     }
     
-    if(email !== '') {
+    if(req.body.email !== '') {
         user.email = req.body.email;
         user.verified = false;
         validateEmail(user.username, user.email, 'updateEmail');

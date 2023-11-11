@@ -17,7 +17,7 @@ const Header = ({ user }) => {
                     ''
                 ) : 
                 (
-                    <p>Hello {user.username}</p>
+                    <p>Hello <a className='nav-to-update'href={`${baseURL_client}/update-info`}>{user.username}</a></p>
                 )
             }
         </header>

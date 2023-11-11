@@ -1,0 +1,55 @@
+.update-form {
+    box-shadow: rgba(236, 133, 42, 0.4) 0px 10px 30px;
+}
+
+.uf-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+    .update-form {
+        background-color: rgb(255, 241, 203);
+        margin-left: 35%;
+        margin-top: 5vh;
+        padding: 10px;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .update {
+        padding-bottom: 10vh;
+    }
+
+    .update-form {
+        background-color: white;
+        margin-left: 25%;
+        margin-top: 5vh;
+        width: 50%;
+    }
+}
+
+/* iPad */
+@media screen and (max-width: 768px) {
+    .update-form {
+        padding: 10px 0 10px 10px;
+    }
+}
+
+/* Surface Duo */
+@media screen and (max-width: 540px) {
+    .update-form {
+        margin-left: 10%;
+        width: 80%;
+    }
+}
+
+/* iPhone 6/7/8 Plus */
+@media screen and (max-width: 414px) {
+    .update-form {
+        margin-left: 9%;
+    }
+}

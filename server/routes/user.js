@@ -130,6 +130,51 @@ router.get('/test-maker/:testId', async (req, res) => {
     });
 });
 
+router.put('/:id', async (req, res) => {
+    console.log(req.params.id);
+    const user = await User.findOne({
+        where: {
+            id: req.params.id
+        } 
+    });
+
+    const email = await User.findOne({
+        where: { 
+            email: req.body.email 
+        }
+    });
+
+    let message = 'Infomation has been updated!';
+
+    if(email) {
+        return res.status(400).json({ msg: 'Email must be unique!' });
+    }
+    
+    if(email !== '') {
+        user.email = req.body.email;
+        user.verified = false;
+        validateEmail(user.username, user.email, 'updateEmail');
+        message = `A verification link will be sent to ${user.email}. Wait 5 - 10 minutes for the link.`;
+    }
+
+    if(req.body.oldPassword !== '' && req.body.newPassword !== '') {
+        const validate = await bcrypt.compare(req.body.oldPassword, user.password);
+        if(!validate) {
+            return res.status(400).json({ msg: 'Old password is wrong!' });
+        }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPass = await bcrypt.hash(req.body.newPassword, salt);
+        user.password = hashedPass;
+    }
+
+    user.save();
+
+    res.send({
+        email: user.email,
+        msg: message
+    });
+});
+
 router.delete('/:id', async (req, res) => {
     await User.destroy({
         where: {

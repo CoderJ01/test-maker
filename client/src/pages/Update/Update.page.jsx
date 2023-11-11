@@ -39,8 +39,10 @@ const Update = ({ user }) => {
             alert('New password must be at least 8 characters!');
             return;
         }
+
+        console.log(user.id)
        
-        axios.put(baseURL + `/users/${user._id}`, 
+        axios.put(baseURL + `/api/users/${user.id}`, 
         {
             email: email,
             oldPassword: oldPassword,

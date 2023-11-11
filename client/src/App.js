@@ -21,6 +21,7 @@ import Update from './pages/Update/Update.page';
 
 // util
 import { baseURL } from './utils/urls';
+import { prohibitAccess } from './utils/prohibitAccess';
 
 // other imports
 import axios from 'axios';
@@ -28,7 +29,7 @@ import cookie from 'js-cookie';
 
 function App() {
   const [user, setUser] = useState([]);
-
+ 
   useEffect(() => {
     const fetchUser = async() => {
       try {
@@ -52,14 +53,14 @@ function App() {
       <Header user={user}/>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={user.length !== 0 ? <Home user={user}/> : <Navigate to='/register'/>}/>
-          <Route path='/register' element={user.length === 0 ? <Register/> : <Navigate to='/'/>}/>
-          <Route path='/login' element={user.length === 0 ? <Login/> : <Navigate to='/'/>}/>
-          <Route path='/create-test' element={user.length === 0 ? <AccessDenied/> : <CreateTest user={user}/>}/>
-          <Route path='/create-questions' element={user.length === 0 ? <AccessDenied/> : <CreateQuestions user={user}/>}/>
-          <Route path='/view-test/:userId/:testId' element={user.length === 0 ? <AccessDenied/> : <ViewTest user={user}/>}/>
-          <Route path='/take-test/:testId' element={user.length === 0 ? <AccessDenied/> : <TakeTest user={user}/>}/>
-          <Route path='/update-info' element={user.length === 0 ? <AccessDenied/> : <Update user={user}/>}/>
+          <Route path='/' element={prohibitAccess(user) === false ? <Home user={user}/> : <Navigate to='/register'/>}/>
+          <Route path='/register' element={prohibitAccess(user) ? <Register/> : <Navigate to='/'/>}/>
+          <Route path='/login' element={prohibitAccess(user) ? <Login/> : <Navigate to='/'/>}/>
+          <Route path='/create-test' element={prohibitAccess(user) ? <AccessDenied/> : <CreateTest user={user}/>}/>
+          <Route path='/create-questions' element={prohibitAccess(user) ? <AccessDenied/> : <CreateQuestions user={user}/>}/>
+          <Route path='/view-test/:userId/:testId' element={prohibitAccess(user) ? <AccessDenied/> : <ViewTest user={user}/>}/>
+          <Route path='/take-test/:testId' element={prohibitAccess(user) ? <AccessDenied/> : <TakeTest user={user}/>}/>
+          <Route path='/update-info' element={prohibitAccess(user) ? <AccessDenied/> : <Update user={user}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

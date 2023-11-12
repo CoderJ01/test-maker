@@ -29,3 +29,26 @@ export const shuffleAnswerChoices = (array) => {
         [array[randomIndex], array[currentIndex]];
     }
 }
+
+// for each question, ensure that no radio buttons are pre-selected 
+// before the test taker makes a selection 
+export const setRadioButtonBlank = () => {
+    let testing = [];
+
+    // looping is ineffective
+    testing[0] = document.getElementById('choice-bttn-0');
+    testing[1] = document.getElementById('choice-bttn-1');
+    testing[2] = document.getElementById('choice-bttn-2');
+    testing[3] = document.getElementById('choice-bttn-3');
+
+    verifyChoiceExistance(testing[0]);
+    verifyChoiceExistance(testing[1]);
+    verifyChoiceExistance(testing[2]); 
+    verifyChoiceExistance(testing[3]); 
+}
+
+const verifyChoiceExistance = (choice) => {
+    if(choice) {
+        choice.checked = false;
+    }
+}

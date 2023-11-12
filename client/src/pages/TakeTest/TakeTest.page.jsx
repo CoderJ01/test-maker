@@ -7,7 +7,7 @@ import './TakeTest.style.css';
 
 // utils
 import { baseURL } from '../../utils/urls';
-import { modifyQuestions, shuffleAnswerChoices } from './TakeTest.util';
+import { modifyQuestions, shuffleAnswerChoices, setRadioButtonBlank } from './TakeTest.util';
 
 // other imports
 import axios from 'axios';
@@ -97,6 +97,7 @@ const TakeTest = ({ user }) => {
             setNumber(number + 1);
             setTestAnswers([...testAnswers, pickedChoice]);
             setPickedChoice('');
+            setRadioButtonBlank();
         }
     }
 
@@ -155,7 +156,7 @@ const TakeTest = ({ user }) => {
                                         (
                                             <>
                                             <div>
-                                                <input type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
+                                                <input id={`choice-bttn-${i}`} type='radio' name='test' onChange={e => setPickedChoice(questions[number]?.choices[i])}></input>
                                                 <label>{questions[number]?.choices[i]}</label>
                                             </div>
                                             <br/>

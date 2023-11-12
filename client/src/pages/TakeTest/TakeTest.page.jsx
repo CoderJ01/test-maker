@@ -96,6 +96,7 @@ const TakeTest = ({ user }) => {
         if(number + 1 <= test.number_of_questions) {
             setNumber(number + 1);
             setTestAnswers([...testAnswers, pickedChoice]);
+            setPickedChoice('');
         }
     }
 

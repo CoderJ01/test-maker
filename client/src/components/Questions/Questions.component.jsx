@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 // CSS 
 import './Questions.style.css';
 
+// utils
+import { setTextFieldsBlank } from './Questions.util';
+
 // URL
 import { baseURL } from '../../utils/urls';
 
@@ -53,6 +56,7 @@ const Questions = ({ user, testId, numOfQuestions }) => {
 
         setQuestions([...questions, questionObj]);
         setQuestionNumber(questionNumber + 1);
+        setTextFieldsBlank();
     }
 
     let navigate = useNavigate();
@@ -89,27 +93,27 @@ const Questions = ({ user, testId, numOfQuestions }) => {
                     <br/>
                     <div>
                         <label htmlFor='question' id='question-heading' style={{ fontWeight: 'bold' }}>Question {questionNumber}</label><br/>
-                        <input type='text' name='question' onChange={e => setQuestion(e.target.value)}></input>
+                        <input id='question' type='text' name='question' onChange={e => setQuestion(e.target.value)}></input>
                     </div>
                     <br/>
                     <div>
                         <label htmlFor='correct-answer'>Correct Answer</label><br/>
-                        <input type='text' name='correct-answer' onChange={e => setCorrect(e.target.value)}></input>
+                        <input id='choice-1' type='text' name='correct-answer' onChange={e => setCorrect(e.target.value)}></input>
                     </div>
                     <br/>
                     <div>
                         <label htmlFor='second-choice'>Choice</label><br/>
-                        <input type='text' name='second-choice' onChange={e => setChoice2(e.target.value)}></input>
+                        <input id='choice-2' type='text' name='second-choice' onChange={e => setChoice2(e.target.value)}></input>
                     </div>
                     <br/>
                     <div>
                         <label htmlFor='third-choice'>Choice</label><br/>
-                        <input type='text' name='third-choice' onChange={e => setChoice3(e.target.value)}></input>
+                        <input id='choice-3' type='text' name='third-choice' onChange={e => setChoice3(e.target.value)}></input>
                     </div>
                     <br/>
                     <div>
                         <label htmlFor='fourth-choice'>Choice</label><br/>
-                        <input type='text' name='fourth-choice' onChange={e => setChoice4(e.target.value)}></input>
+                        <input id='choice-4' type='text' name='fourth-choice' onChange={e => setChoice4(e.target.value)}></input>
                     </div>
                     <br/>
                     <button id='question-add' onClick={addQuestion}>Add</button>

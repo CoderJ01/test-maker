@@ -54,6 +54,13 @@ const Questions = ({ user, testId, numOfQuestions }) => {
             choice4: choice4
         };
 
+        if(questions.length >= 1) {
+            if(questionObj.question.trim() === questions[questions.length - 1].question.trim()) {
+                alert('You\'ve created a repeat question by mistake.');
+                return;
+            }
+        }
+
         setQuestions([...questions, questionObj]);
         setQuestionNumber(questionNumber + 1);
         setTextFieldsBlank();

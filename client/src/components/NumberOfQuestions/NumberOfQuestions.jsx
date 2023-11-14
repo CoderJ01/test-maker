@@ -1,6 +1,9 @@
 // React
 import React, { useState, useEffect, useCallback } from 'react';
 
+// CSS
+import './NumberOfQuestions.css';
+
 // URL
 import { baseURL } from '../../utils/urls';
 

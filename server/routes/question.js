@@ -28,7 +28,6 @@ router.post('/:testId', async (req, res) => {
     });
 
     test.complete = true;
-    test.number_of_questions = questionSet.length;
     test.save();
 
     res.status(200).json({

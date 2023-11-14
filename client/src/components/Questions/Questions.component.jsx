@@ -56,7 +56,7 @@ const Questions = ({ user, testId, numOfQuestions }) => {
 
         if(questions.length >= 1) {
             if(questionObj.question.trim() === questions[questions.length - 1].question.trim()) {
-                alert('You\'ve created a repeat question by mistake.');
+                alert('This questions is the same as the previous question.');
                 return;
             }
         }

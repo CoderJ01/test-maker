@@ -19,10 +19,6 @@ Test.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        number_of_questions: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
         complete: {
             type: DataTypes.BOOLEAN,
             defaultValue: false

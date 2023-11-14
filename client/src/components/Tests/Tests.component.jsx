@@ -4,6 +4,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 // CSS
 import './Tests.style.css';
 
+// components
+import NumberOfQuestions from '../NumberOfQuestions/NumberOfQuestions';
+
 // URL
 import { baseURL, baseURL_client } from '../../utils/urls';
 
@@ -48,7 +51,8 @@ const Tests = ({ user }) => {
                             <div className='test-single-test'>
                                 <h3><a href={`${baseURL_client}/take-test/${test.id}`} target='_blank' rel='noopener noreferrer'>{test.title}</a></h3>
                                 <p>{test.description}</p>
-                                <p id='tst-questions'>Number of Questions: {test.number_of_questions}</p>
+                                {/* <p id='tst-questions'>Number of Questions: {test.number_of_questions}</p> */}
+                                <NumberOfQuestions testId={test.id}/>
                             </div>
                         );
                     })

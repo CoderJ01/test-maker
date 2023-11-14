@@ -93,7 +93,7 @@ const TakeTest = ({ user }) => {
             return;
         }
 
-        if(number + 1 <= test.number_of_questions) {
+        if(number + 1 <= questions?.length) {
             setNumber(number + 1);
             setTestAnswers([...testAnswers, pickedChoice]);
             setPickedChoice('');
@@ -104,7 +104,7 @@ const TakeTest = ({ user }) => {
     const handleTestSubmission = (e) => {
         e.preventDefault();
 
-        if(number + 1 <= test.number_of_questions) {
+        if(number + 1 <= questions?.length) {
            alert('You have not completed the test yet!');
            return;
         }

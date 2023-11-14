@@ -21,11 +21,6 @@
     justify-content: space-between;
 }
 
-#tst-questions {
-    font-style: italic;
-    text-align: right;
-}
-
 /* Desktop */
 @media screen and (min-width: 1280px) {
     .tests {

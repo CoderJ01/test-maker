@@ -4,15 +4,13 @@ import React from 'react';
 // CSS 
 import './Logout.style.css';
 
-// other imports
-import cookie from 'js-cookie';
+// util
+import { processLogout } from './Logout.util';
 
 const Logout = () => {
     
     const handleLogout = (event) => {
-        event.preventDefault();
-        cookie.remove('test-maker-cookie');
-        window.location.reload(false);
+       processLogout(event);
     }
 
     return (

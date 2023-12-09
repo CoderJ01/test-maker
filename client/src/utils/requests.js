@@ -51,19 +51,20 @@ export function postInfo(route, infoObj, navigate) {
     })
     .then(response => {
         console.log(response);
-        if(route.includes('questions')) {
-            alert(response.data.msg);
-            navigate('/');
-        }
-        if(route.includes('register')) {
-            alert(response.data.msg);
-            navigate('/login');
-        }
+        navigateTo(route, navigate, response, 'questions', '/');
+        navigateTo(route, navigate, response, 'register', '/login');
     })
     .catch(error => {
         console.log(error);
         if(route.includes('register')) alert(error.response.data.msg);
     });
+}
+
+function navigateTo(route, navigate, response, routeSnippet, navigateTo) {
+    if(route.includes(routeSnippet)) {
+        alert(response.data.msg);
+        navigate(navigateTo);
+    }
 }
 
 export function loginUser(route, username, password) {

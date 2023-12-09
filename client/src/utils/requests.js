@@ -44,7 +44,10 @@ function getUser(response, setData) {
 // POST
 export function postInfo(route, infoObj, navigate) {
     axios.post(`${baseURL_server}/${route}`, {
-        questions: infoObj
+        questions: infoObj,
+        username: infoObj.username,
+        password: infoObj.password,
+        email: infoObj.email
     })
     .then(response => {
         console.log(response);
@@ -52,9 +55,14 @@ export function postInfo(route, infoObj, navigate) {
             alert(response.data.msg);
             navigate('/');
         }
+        if(route.includes('register')) {
+            alert(response.data.msg);
+            navigate('/login');
+        }
     })
     .catch(error => {
         console.log(error);
+        if(route.includes('register')) alert(error.response.data.msg);
     });
 }
 

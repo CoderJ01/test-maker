@@ -8,11 +8,13 @@ import './Register.style.css';
 // utils
 import { baseURL, baseURL_client } from '../../utils/urls';
 import isValidEmail from '../../utils/emailValidation';
+import { processSubmission } from './Register.util';
 
 // other imports
 import axios from 'axios';
 
 const Register = () => {
+    const [formState, setFormState] = useState({ username: '', email: '', password: '' });
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,38 +22,7 @@ const Register = () => {
     let navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if(username === '' || email === '' || password === '') {
-            alert('All fields need to be filled in!');
-            return;
-        }
-
-        if(!isValidEmail(email)) {
-            alert('Email is invalid!');
-            return;
-        }
-
-        if(password.length < 8) {
-            alert('Password needs to be at least 8 characters!');
-            return;
-        }
-
-        axios.post(`${baseURL}/api/users/register`, 
-            {
-                username: username,
-                email: email,
-                password: password
-            }
-        )
-        .then(response => {
-            alert(response.data.msg);
-            navigate('/login');
-        })
-        .catch(error => {
-            console.log(error);
-            alert(error.response.data.msg);
-        })
+        processSubmission(e, formState, navigate);
     }
 
     return (
@@ -61,17 +32,32 @@ const Register = () => {
                 <br/>
                 <div>
                     <label htmlFor='username'>Username:</label><br/>
-                    <input type='text' name='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input 
+                        type='text' 
+                        name='username' 
+                        value={formState.username} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='text' name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input 
+                        type='text' 
+                        name='email' 
+                        value={formState.email} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <br/>
                 <div>
-                    <label htmlFor='passowrd'>Password (8+ characters):</label><br/>
-                    <input type='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <label htmlFor='password'>Password (8+ characters):</label><br/>
+                    <input 
+                        type='password' 
+                        name='password' 
+                        value={formState.password} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <br/>
                 <div className='register-footer'>

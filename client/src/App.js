@@ -1,5 +1,4 @@
 // React
-import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // CSS
@@ -20,33 +19,11 @@ import TakeTest from './pages/TakeTest/TakeTest.page';
 import Update from './pages/Update/Update.page';
 
 // util
-import { baseURL } from './utils/urls';
 import { prohibitAccess } from './utils/prohibitAccess';
-
-// other imports
-import axios from 'axios';
-import cookie from 'js-cookie';
+import { GetData } from './utils/requests';
 
 function App() {
-  const [user, setUser] = useState([]);
- 
-  useEffect(() => {
-    const fetchUser = async() => {
-      try {
-        let userCookie = cookie.get('test-maker-cookie');
-        const response = await axios.get(`${baseURL}/api/users`);
-        for(let i = 0; i < response.data.length; i++) {
-          if(response.data[i].random_string === userCookie) {
-            setUser(response.data[i]);
-          }
-        }
-      }
-      catch(error) {
-        console.log(error);
-      }
-    }
-    fetchUser();
-  }, []);
+  const user = GetData('api/users', true);
 
   return (
     <div className='App'>

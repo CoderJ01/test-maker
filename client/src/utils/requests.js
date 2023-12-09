@@ -42,12 +42,16 @@ function getUser(response, setData) {
 }
 
 // POST
-export function postInfo(route, infoObj) {
+export function postInfo(route, infoObj, navigate) {
     axios.post(`${baseURL_server}/${route}`, {
-        
+        questions: infoObj
     })
     .then(response => {
         console.log(response);
+        if(route.includes('questions')) {
+            alert(response.data.msg);
+            navigate('/');
+        }
     })
     .catch(error => {
         console.log(error);

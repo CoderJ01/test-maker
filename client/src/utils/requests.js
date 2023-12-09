@@ -59,9 +59,14 @@ export function loginUser(route, username, password) {
     {
         username: username,
         password: password,
+    },
+    {
+        withCredentials: true,
+        credentials: 'include'
     })
     .then(response => {
-        setCookie('test-maker-cookie', response.data.random_string, 1);
+        console.log(response.data.data.random_string);
+        setCookie('test-maker-cookie', response.data.data.random_string, 1);
         window.location.reload(false);
     })
     .catch(error => {

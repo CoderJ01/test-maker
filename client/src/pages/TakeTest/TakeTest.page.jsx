@@ -8,6 +8,7 @@ import './TakeTest.style.css';
 // utils
 import { baseURL } from '../../utils/urls';
 import { modifyQuestions, shuffleAnswerChoices, setRadioButtonBlank } from './TakeTest.util';
+import { GetData } from '../../utils/requests';
 
 // other imports
 import axios from 'axios';
@@ -16,29 +17,12 @@ const TakeTest = ({ user }) => {
     const { testId } = useParams();
 
     const [pickedChoice, setPickedChoice] = useState('');
-    const [test, setTest] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [testMaker, setTestMaker] = useState([]);
     const [number, setNumber] = useState(0);
     const [testAnswers, setTestAnswers] = useState([]);
 
-    const fetchTest = useCallback(async () => {
-        const id = testId;
-
-        if(id) {
-            try {
-                const response = await axios.get(`${baseURL}/api/tests/single-test/${id}`);
-                setTest(response.data);
-            }
-            catch(error) {
-                console.log(error);
-            }
-        }
-    }, [testId]);
-
-    useEffect(() => {
-        fetchTest();
-    }, [fetchTest]);
+    const test = GetData(`api/tests/single-test/${testId}`);
 
     const fetchQuestions = useCallback(async () => {
         const id = testId;
@@ -132,10 +116,10 @@ const TakeTest = ({ user }) => {
 
     return (
         <div className='take-test'>
-            <h2>{test.title}</h2>
+            <h2>{test?.data?.title}</h2>
             <h3 style={{ fontStyle: 'italic', textAlign: 'center' }}>by {testMaker?.username}</h3>
             <br/>
-            <p style={{ textAlign: 'center' }}>{test.description}</p>
+            <p style={{ textAlign: 'center' }}>{test?.data?.description}</p>
             <div className='take-test-test'>
                 <form>
                 {

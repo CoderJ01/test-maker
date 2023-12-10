@@ -5,51 +5,16 @@ import React, { useState } from 'react';
 import './CreateTest.style.css';
 
 // util
-import { listOptions } from './CreateTest.util';
-import { baseURL, baseURL_client } from '../../utils/urls';
-
-// other imports
-import axios from 'axios';
+import { processSubmission, listOptions } from './CreateTest.util';
+import { baseURL_client } from '../../utils/urls';
 
 const CreateTest = ({ user }) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [selected, setSelected] = useState('10');
+    const [formState, setFormState] = useState({ title: '', description: '', selected: '10' });
 
     const options = listOptions();
     
     const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if(title === '') {
-            alert('The test needs a title!');
-            return;
-        }
-
-        if(description === '') {
-            alert('The test needs a description!');
-            return;
-        }
-
-        const id = user.id;
-
-        if(id) {
-            axios.post(`${baseURL}/api/tests/${id}`, 
-            {
-                title: title,
-                description: description,
-                number: selected
-            }
-            )
-            .then(response => {
-                alert(response.data.msg);
-                console.log(response);
-            })
-            .catch(error => {
-                alert(error.response.data.msg);
-                console.log(error);
-            });
-        }
+        processSubmission(e, formState, user);
     }
     
     return (
@@ -58,19 +23,29 @@ const CreateTest = ({ user }) => {
                 <h2>Create Test</h2><br/>
                 <div>
                     <label htmlFor='title'>Title:</label><br/>
-                    <input maxLength={25} type='text' name='title' onChange={e => setTitle(e.target.value)}></input>
+                    <input 
+                        maxLength={25} 
+                        type='text' 
+                        name='title' 
+                        onChange={e => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    ></input>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='description'>Description:</label><br/>
-                    <textarea maxLength={200} type='text' name='description' onChange={e => setDescription(e.target.value)}></textarea>
+                    <textarea 
+                        maxLength={200} 
+                        type='text' 
+                        name='description' 
+                        onChange={e => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    ></textarea>
                 </div>
                 <br/>
                 <div>
                     <label htmlFor='questions'>Maximum Number of Questions:</label><br/>
                     <select 
-                        value={selected} 
-                        onChange={e => setSelected(e.target.value)}
+                        value={formState.selected} 
+                        onChange={e => setFormState({ ...formState, [e.target.name]: e.target.value })}
                     >
                     {options.map((value) => (
                     <option value={value} key={value}>

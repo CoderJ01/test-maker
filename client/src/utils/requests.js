@@ -50,16 +50,19 @@ export function postInfo(route, infoObj, navigate) {
         email: infoObj.email,
         title: infoObj.title,
         description: infoObj.description,
-        number: infoObj.selected
+        number: infoObj.selected,
+        answers: infoObj
     })
     .then(response => {
         console.log(response);
         navigateTo(route, navigate, response, 'questions', '/');
         navigateTo(route, navigate, response, 'register', '/login');
+        navigateTo(route, navigate, response, 'scores', '/')
     })
     .catch(error => {
         console.log(error);
         if(route.includes('register')) alert(error.response.data.msg);
+        if(route.includes('scores')) alert('You have not completed the test yet!');
     });
 }
 

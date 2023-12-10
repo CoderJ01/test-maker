@@ -1,44 +1,23 @@
-// React
-import React, { useState, useEffect, useCallback } from 'react';
-
 // CSS
 import './Tests.style.css';
+
+// utils 
+import { GetData } from '../../utils/requests';
 
 // components
 import NumberOfQuestions from '../NumberOfQuestions/NumberOfQuestions';
 
 // URL
-import { baseURL, baseURL_client } from '../../utils/urls';
-
-// other imports
-import axios from 'axios';
+import { baseURL_client } from '../../utils/urls';
 
 const Tests = ({ user }) => {
-    const [tests, setTests] = useState([]);
-
-    const fetchTests = useCallback(async () => {
-        const id = user.id;
-
-        if(id) {
-            try {
-                const response = await axios.get(`${baseURL}/api/tests/other-users/${id}`);
-                setTests(response.data);
-            }
-            catch(error) {
-                console.log(error);
-            }
-        }
-    }, [user.id]);
-
-    useEffect(() => {
-        fetchTests();
-    }, [fetchTests]);
+    const tests = GetData(`api/tests/other-users/${user.id}`);
 
     return (
         <div className='tests'>
             <h2>Tests</h2>
             {
-                tests.length === 0 ? 
+                tests?.data?.length === 0 ? 
                 (
                     <>
                     <br/>
@@ -46,7 +25,7 @@ const Tests = ({ user }) => {
                     </>
                 ) :
                 (
-                    tests.map(test => {
+                    tests?.data?.map(test => {
                         return (
                             <div className='test-single-test'>
                                 <h3><a href={`${baseURL_client}/take-test/${test.id}`} target='_blank' rel='noopener noreferrer'>{test.title}</a></h3>

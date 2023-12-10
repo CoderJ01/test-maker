@@ -47,7 +47,10 @@ export function postInfo(route, infoObj, navigate) {
         questions: infoObj,
         username: infoObj.username,
         password: infoObj.password,
-        email: infoObj.email
+        email: infoObj.email,
+        title: infoObj.title,
+        description: infoObj.description,
+        number: infoObj.selected
     })
     .then(response => {
         console.log(response);

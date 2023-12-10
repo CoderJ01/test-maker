@@ -1,5 +1,5 @@
 // React 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 // CSS
@@ -7,7 +7,7 @@ import './TakeTest.style.css';
 
 // utils
 import { baseURL } from '../../utils/urls';
-import { modifyQuestions, randomizeChoices, setRadioButtonBlank, processChoiceSubmission } from './TakeTest.util';
+import { modifyQuestions, randomizeChoices, processChoiceSubmission } from './TakeTest.util';
 import { GetData } from '../../utils/requests';
 
 // other imports

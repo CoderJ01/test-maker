@@ -17,11 +17,8 @@ const TakeTest = ({ user }) => {
     const [testAnswers, setTestAnswers] = useState([]);
 
     const test = GetData(`api/tests/single-test/${testId}`);
-    const fetchedQuestions = GetData(`api/questions/${testId}`);
+    const questions = GetData(`api/questions/${testId}`, false, true);
     const testMaker = GetData(`api/users/test-maker/${testId}`);
-
-    const questions = modifyQuestions(fetchedQuestions?.data);
-    randomizeChoices(questions);
 
     let navigate = useNavigate();
 

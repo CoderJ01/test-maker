@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './TakeTest.style.css';
 
 // utils
-import { modifyQuestions, randomizeChoices, processChoiceSubmission, processTestSubmission } from './TakeTest.util';
+import { processChoiceSubmission, processTestSubmission } from './TakeTest.util';
 import { GetData } from '../../utils/requests';
 
 const TakeTest = ({ user }) => {

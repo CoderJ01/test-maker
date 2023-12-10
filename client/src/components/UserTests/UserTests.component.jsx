@@ -1,36 +1,17 @@
 // React
-import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // CSS
 import './UserTests.style.css';
 
-// URL
-import { baseURL, baseURL_client } from '../../utils/urls';
+// util 
+import { GetData } from '../../utils/requests';
 
-// other imports
-import axios from 'axios';
+// URL
+import { baseURL_client } from '../../utils/urls';
 
 const UserTests = ({ user }) => {
-    const [tests, setTests] = useState([]);
-
-    const fetchTests = useCallback(async () => {
-        const id = user.id;
-
-        if(id) {
-            try {
-                const response = await axios.get(`${baseURL}/api/tests/all/${id}`);
-                setTests(response.data);
-            }
-            catch(error) {
-                console.log(error);
-            }
-        }
-    }, [user.id]);
-
-    useEffect(() => {
-        fetchTests();
-    }, [fetchTests]);
+    const tests = GetData(`api/tests/all/${user.id}`);
 
     let navigate = useNavigate();
 
@@ -43,7 +24,7 @@ const UserTests = ({ user }) => {
         <div className='user-tests'>
             <h2>Your Tests</h2>
             {
-                tests.length === 0 ? 
+                tests?.data?.length === 0 ? 
                 (
                     <div className='ut-no-test'>
                         <br/>
@@ -54,7 +35,7 @@ const UserTests = ({ user }) => {
                 (
                     <div className='user-test-display'>
                     {
-                        tests.map(test => {
+                        tests?.data?.map(test => {
                             return (
                                 <div className='utd-single-test'>
                                     <h3><a href={`${baseURL_client}/view-test/${user.id}/${test.id}`} target='_blank' rel='noopener noreferrer'>{test.title}</a></h3>

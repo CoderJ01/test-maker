@@ -7,7 +7,7 @@ import './TakeTest.style.css';
 
 // utils
 import { baseURL } from '../../utils/urls';
-import { modifyQuestions, randomizeChoices, setRadioButtonBlank } from './TakeTest.util';
+import { modifyQuestions, randomizeChoices, setRadioButtonBlank, processChoiceSubmission } from './TakeTest.util';
 import { GetData } from '../../utils/requests';
 
 // other imports
@@ -30,19 +30,7 @@ const TakeTest = ({ user }) => {
     let navigate = useNavigate();
 
     const handleChoiceSubmission = (e) => {
-        e.preventDefault();
-
-        if(pickedChoice === '') {
-            alert('You have not selected an answer!');
-            return;
-        }
-
-        if(number + 1 <= questions?.length) {
-            setNumber(number + 1);
-            setTestAnswers([...testAnswers, pickedChoice]);
-            setPickedChoice('');
-            setRadioButtonBlank();
-        }
+       processChoiceSubmission(e, pickedChoice, number, questions, testAnswers, setNumber, setTestAnswers, setPickedChoice);
     }
 
     const handleTestSubmission = (e) => {

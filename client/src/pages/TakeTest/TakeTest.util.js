@@ -1,3 +1,6 @@
+// util 
+import { postInfo } from '../../utils/requests';
+
 export const modifyQuestions = (questions) => {
     let modifiedQuestions = [];
 
@@ -72,5 +75,18 @@ export const processChoiceSubmission = (e, pickedChoice, number, questions, test
         setTestAnswers([...testAnswers, pickedChoice]);
         setPickedChoice('');
         setRadioButtonBlank();
+    }
+}
+
+export const processTestSubmission = (e, number, questions, testId, testAnswers, user, navigate) => {
+    e.preventDefault();
+
+    if(number + 1 <= questions?.length) {
+        alert('You have not completed the test yet!');
+        return;
+    }
+
+    if(testId && user.id) {
+        postInfo(`api/scores/${testId}/${user.id}`, testAnswers, navigate);
     }
 }

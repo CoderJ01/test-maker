@@ -6,12 +6,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './TakeTest.style.css';
 
 // utils
-import { baseURL } from '../../utils/urls';
-import { modifyQuestions, randomizeChoices, processChoiceSubmission } from './TakeTest.util';
+import { modifyQuestions, randomizeChoices, processChoiceSubmission, processTestSubmission } from './TakeTest.util';
 import { GetData } from '../../utils/requests';
-
-// other imports
-import axios from 'axios';
 
 const TakeTest = ({ user }) => {
     const { testId } = useParams();
@@ -34,32 +30,7 @@ const TakeTest = ({ user }) => {
     }
 
     const handleTestSubmission = (e) => {
-        e.preventDefault();
-
-        if(number + 1 <= questions?.length) {
-           alert('You have not completed the test yet!');
-           return;
-        }
-
-        const test_id = testId;
-        const user_id = user.id;
-
-        if(test_id && user_id) {
-            axios.post(`${baseURL}/api/scores/${test_id}/${user_id}`,
-                {
-                    answers: testAnswers
-                }
-            )
-            .then(response => {
-                console.log(response);
-                alert('Test has been successfully submitted!');
-                let path = `/`;
-                navigate(path);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        }
+        processTestSubmission(e, number, questions, testId, testAnswers, user, navigate);
     }
 
     return (

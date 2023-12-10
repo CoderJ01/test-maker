@@ -7,7 +7,7 @@ import './TakeTest.style.css';
 
 // utils
 import { baseURL } from '../../utils/urls';
-import { modifyQuestions, shuffleAnswerChoices, setRadioButtonBlank } from './TakeTest.util';
+import { modifyQuestions, randomizeChoices, setRadioButtonBlank } from './TakeTest.util';
 import { GetData } from '../../utils/requests';
 
 // other imports
@@ -17,37 +17,15 @@ const TakeTest = ({ user }) => {
     const { testId } = useParams();
 
     const [pickedChoice, setPickedChoice] = useState('');
-    const [questions, setQuestions] = useState([]);
     const [testMaker, setTestMaker] = useState([]);
     const [number, setNumber] = useState(0);
     const [testAnswers, setTestAnswers] = useState([]);
 
     const test = GetData(`api/tests/single-test/${testId}`);
+    const fetchedQuestions = GetData(`api/questions/${testId}`);
 
-    const fetchQuestions = useCallback(async () => {
-        const id = testId;
-
-        if(id) {
-            try {
-                const response = await axios.get(`${baseURL}/api/questions/${id}`);
-                
-                let modifiedQuestions = modifyQuestions(response.data);
-                
-                for(let i = 0; i < modifiedQuestions.length; i++) {
-                    shuffleAnswerChoices(modifiedQuestions[i].choices);
-                }
-                
-                setQuestions(modifiedQuestions)
-            }
-            catch(error) {
-                console.log(error);
-            }
-        }
-    }, [testId]);
-
-    useEffect(() => {
-        fetchQuestions();
-    }, [fetchQuestions]);
+    const questions = modifyQuestions(fetchedQuestions?.data);
+    randomizeChoices(questions);
 
     const fetchUser = useCallback(async () => {
         const id = testId;

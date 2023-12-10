@@ -17,7 +17,13 @@ export const modifyQuestions = (questions) => {
     return modifiedQuestions;
 }
 
-export const shuffleAnswerChoices = (array) => {
+export const randomizeChoices = (questions) => {
+    for(let i = 0; i < questions?.length; i++) {
+        shuffleAnswerChoices(questions[i]?.choices);
+    }
+}
+
+const shuffleAnswerChoices = (array) => {
     let currentIndex = array.length,  randomIndex;
 
     while (currentIndex !== 0) {

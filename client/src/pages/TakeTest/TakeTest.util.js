@@ -2,14 +2,14 @@ export const modifyQuestions = (questions) => {
     let modifiedQuestions = [];
 
     // put answer choices per question in the same array
-    for(let i = 0; i < questions.length; i++) {
+    for(let i = 0; i < questions?.length; i++) {
         modifiedQuestions[i] = {
-            question: questions[i].question_header,
+            question: questions[i]?.question_header,
             choices: [
-                questions[i].correct_answer,
-                questions[i].second_choice,
-                questions[i].third_choice,
-                questions[i].fourth_choice
+                questions[i]?.correct_answer,
+                questions[i]?.second_choice,
+                questions[i]?.third_choice,
+                questions[i]?.fourth_choice
             ]
         }
     }

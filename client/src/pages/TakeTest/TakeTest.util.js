@@ -58,3 +58,19 @@ const verifyChoiceExistance = (choice) => {
         choice.checked = false;
     }
 }
+
+export const processChoiceSubmission = (e, pickedChoice, number, questions, testAnswers, setNumber, setTestAnswers, setPickedChoice) => {
+    e.preventDefault();
+
+    if(pickedChoice === '') {
+        alert('You have not selected an answer!');
+        return;
+    }
+
+    if(number + 1 <= questions?.length) {
+        setNumber(number + 1);
+        setTestAnswers([...testAnswers, pickedChoice]);
+        setPickedChoice('');
+        setRadioButtonBlank();
+    }
+}

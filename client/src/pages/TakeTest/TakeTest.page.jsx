@@ -26,7 +26,7 @@ const TakeTest = ({ user }) => {
     let navigate = useNavigate();
 
     const handleChoiceSubmission = (e) => {
-       processChoiceSubmission(e, pickedChoice, number, questions, testAnswers, setNumber, setTestAnswers, setPickedChoice);
+        processChoiceSubmission(e, pickedChoice, number, questions, testAnswers, setNumber, setTestAnswers, setPickedChoice);
     }
 
     const handleTestSubmission = (e) => {

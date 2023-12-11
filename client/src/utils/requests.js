@@ -106,3 +106,23 @@ export const deleteInfo = async (route) => {
         console.log(error);
     }
 }
+
+// UPDATE
+export const updateInfo = async (route, infoObj) => {
+    axios.put(`${baseURL_server}/${route}`, 
+    {
+        email: infoObj.email,
+        oldPassword: infoObj.oldPassword,
+        newPassword: infoObj.newPassword
+    },  
+    )
+    .then(
+        response => {
+            alert(response.data.msg);
+            window.location.reload(false);
+        }, 
+        error => {
+            alert(error.response.data.msg);
+        }
+    );
+}

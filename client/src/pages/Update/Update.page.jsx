@@ -4,60 +4,14 @@ import React, { useState } from 'react';
 // CSS
 import './Update.style.css';
 
-// URL
-import { baseURL } from '../../utils/urls';
-
-// other imports
-import axios from 'axios';
-import isValidEmail from '../../utils/emailValidation';
+// utils
+import { processSubmission } from './Update.util';
 
 const Update = ({ user }) => {
-    const [email, setEmail] = useState('');
-    const [oldPassword, setOldPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
+    const [formState, setFormState] = useState({ email: '', oldPassword: '', newPassword: '' });
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        if(email === '' && oldPassword === '' && newPassword === '') 
-        {
-            alert('Please fill in at least one field!');
-            return;
-        }
-
-        if(email !== '' && !isValidEmail(email)) {
-            alert('Email is not valid!');
-            return;
-        }
-
-        if((oldPassword !== '' && newPassword === '') || (oldPassword === '' && newPassword !== '')) {
-            alert('Please fill in both your current password and your new password!');
-            return;
-        }
-
-        if(oldPassword !== '' && newPassword.length < 8) {
-            alert('New password must be at least 8 characters!');
-            return;
-        }
-
-        console.log(user.id)
-       
-        axios.put(baseURL + `/api/users/${user.id}`, 
-        {
-            email: email,
-            oldPassword: oldPassword,
-            newPassword: newPassword
-        },  
-        )
-        .then(
-            response => {
-                alert(response.data.msg);
-                window.location.reload(false);
-            }, 
-            error => {
-                alert(error.response.data.msg);
-            }
-        );
+        processSubmission(event, formState, user);
     }
 
     return (
@@ -66,15 +20,30 @@ const Update = ({ user }) => {
                 <h2>Update Info</h2>
                 <div>
                     <label htmlFor='email'>Email:</label><br/>
-                    <input type='text' name='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input 
+                        type='text' 
+                        name='email' 
+                        value={formState.email} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <div>
                     <label htmlFor='old-password'>Password (current):</label><br/>
-                    <input type='password' name='old-password' value={oldPassword} onChange={(e) => setOldPassword(e.target.value)}/>
+                    <input 
+                        type='password' 
+                        name='oldPassword' 
+                        value={formState.oldPassword} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <div>
                     <label htmlFor='new-password'>Password (new):</label><br/>
-                    <input type='password' name='new-password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
+                    <input 
+                        type='password' 
+                        name='newPassword' 
+                        value={formState.newPassword} 
+                        onChange={(e) => setFormState({ ...formState, [e.target.name]: e.target.value })}
+                    />
                 </div>
                 <br/>
                 <div className='uf-button'>

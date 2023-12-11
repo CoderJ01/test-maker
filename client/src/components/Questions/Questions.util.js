@@ -1,4 +1,5 @@
-import { postInfo } from "../../utils/requests";
+// util
+import { postInfo } from '../../utils/requests';
 
 export const processQuestion = (e, numOfQuestions, form, questions, questionNumber, setQuestions, setQuestionNumber) => {
     e.preventDefault();

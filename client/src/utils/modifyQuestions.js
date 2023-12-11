@@ -24,7 +24,7 @@ export const randomizeChoices = (questions, setData) => {
     setData(questions);
 }
 
-export const shuffleAnswerChoices = (array) => {
+const shuffleAnswerChoices = (array) => {
     let currentIndex = array?.length,  randomIndex;
 
     while (currentIndex !== 0) {

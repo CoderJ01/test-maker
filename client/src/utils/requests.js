@@ -14,7 +14,7 @@ import cookie from 'js-cookie';
 const baseURL_server = process.env.REACT_APP_SERVER_URL;
 
 // GET
-export function GetData(route, user = false, questions = false) {
+export const GetData = (route, user = false, questions = false) => {
     const [data, setData] = useState([]);
 
     const getInfo = useCallback(async() => {
@@ -36,7 +36,7 @@ export function GetData(route, user = false, questions = false) {
     return data;
 }
 
-function getUser(response, setData) {
+const getUser = (response, setData) => {
     let userCookie = cookie.get('test-maker-cookie');
     for(let i = 0; i < response.data.length; i++) {
         if(response.data[i].random_string === userCookie) {
@@ -46,7 +46,7 @@ function getUser(response, setData) {
 }
 
 // POST
-export function postInfo(route, infoObj, navigate) {
+export const postInfo = (route, infoObj, navigate) => {
     axios.post(`${baseURL_server}/${route}`, {
         questions: infoObj,
         username: infoObj.username,
@@ -70,14 +70,14 @@ export function postInfo(route, infoObj, navigate) {
     });
 }
 
-function navigateTo(route, navigate, response, routeSnippet, navigateTo) {
+const navigateTo = (route, navigate, response, routeSnippet, navigateTo) => {
     if(route.includes(routeSnippet)) {
         alert(response.data.msg);
         navigate(navigateTo);
     }
 }
 
-export function loginUser(route, username, password) {
+export const loginUser = (route, username, password) => {
     axios.post(`${baseURL_server}/${route}`, 
     {
         username: username,
@@ -98,7 +98,7 @@ export function loginUser(route, username, password) {
 }
 
 // DELETE
-export async function deleteInfo(route) {
+export const deleteInfo = async (route) => {
     try {
         await axios.delete(`${baseURL_server}/${route}`);
     }

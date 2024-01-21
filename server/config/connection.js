@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-    process.env.CLEAR_DB_DATABASE, 
-    process.env.CLEAR_DB_USERNAME, 
-    process.env.CLEAR_DB_PASSWORD, 
+    process.env.JAWS_DB_DATABASE, 
+    process.env.JAWS_DB_USERNAME, 
+    process.env.JAWS_DB_PASSWORD, 
     {
-        host: process.env.CLEAR_DB_HOST,
+        host: process.env.JAWS_DB_HOST,
         dialect: 'mysql'
     }
 );

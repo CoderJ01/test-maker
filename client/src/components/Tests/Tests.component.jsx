@@ -28,7 +28,7 @@ const Tests = ({ user }) => {
                     tests?.data?.map(test => {
                         return (
                             <div className='test-single-test'>
-                                <h3><a href={`${baseURL_client}/take-test/${test.id}`} target='_blank' rel='noopener noreferrer'>{test.title}</a></h3>
+                                <h3><a href={`${baseURL_client}/take-test/${test.id}`}>{test.title}</a></h3>
                                 <p>{test.description}</p>
                                 <NumberOfQuestions testId={test.id}/>
                             </div>
